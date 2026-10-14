@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ghulife</title>
+<meta name="description" content="ghulife: your school week, training, food and prayers in one simple planner. Made by Abdullah Alghuwairi.">
+<meta name="author" content="Abdullah Alghuwairi">
+<meta property="og:title" content="ghulife">
+<meta property="og:description" content="Your life, finally organized. A planner for students by Abdullah Alghuwairi.">
+<meta name="theme-color" content="#3b4fd8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ghulife">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2030%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%236a5cf0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230f8a8a%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M12%201.2C6.6%201.2%202.2%209.6%202.2%2017.6%202.2%2024%206.6%2028.8%2012%2028.8s9.8-4.8%209.8-11.2C21.8%209.6%2017.4%201.2%2012%201.2z%22%20fill%3D%22url%28%23g%29%22/%3E%3Cpath%20d%3D%22M5.6%2017.2h12.8%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2030%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%236a5cf0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230f8a8a%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M12%201.2C6.6%201.2%202.2%209.6%202.2%2017.6%202.2%2024%206.6%2028.8%2012%2028.8s9.8-4.8%209.8-11.2C21.8%209.6%2017.4%201.2%2012%201.2z%22%20fill%3D%22url%28%23g%29%22/%3E%3Cpath%20d%3D%22M5.6%2017.2h12.8%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+</head>
+<body>
+<style>
+/* ghulife — Layout: phone app. Hero header per tab, scrolling cards, floating bottom dock with a raised Scan button */
+:root{
+  --bg:#eef1f6; --card:#ffffff; --card2:#f6f8fb; --fg:#121a29; --muted:#5b687b; --line:#dbe1ea;
+  --accent:#3b4fd8; --accent-2:#6a5cf0; --accent-soft:#e5e8fd;
+  --due:#d1432f; --due-soft:#fde9e5; --done:#1f8a55; --done-soft:#dff3e8;
+  --warm:#b8640c; --warm-soft:#fdf0dc; --teal:#0f8a8a; --teal-soft:#dcf2f1;
+  --shadow:0 8px 24px rgba(22,32,60,.08); --on:#ffffff;
+  --display:"Bricolage Grotesque","IBM Plex Sans Arabic","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","IBM Plex Sans Arabic",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1018; --card:#151b26; --card2:#1b2230; --fg:#e9edf4; --muted:#96a1b3; --line:#262f3e;
+  --accent:#8b9cff; --accent-2:#a596ff; --accent-soft:#1f2648;
+  --due:#ff8c7c; --due-soft:#3b1e1a; --done:#5fd193; --done-soft:#14301f;
+  --warm:#f3b25d; --warm-soft:#33250f; --teal:#56d0cd; --teal-soft:#11302f;
+  --shadow:0 8px 24px rgba(0,0,0,.35); --on:#0c1018; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1018; --card:#151b26; --card2:#1b2230; --fg:#e9edf4; --muted:#96a1b3; --line:#262f3e;
+  --accent:#8b9cff; --accent-2:#a596ff; --accent-soft:#1f2648;
+  --due:#ff8c7c; --due-soft:#3b1e1a; --done:#5fd193; --done-soft:#14301f;
+  --warm:#f3b25d; --warm-soft:#33250f; --teal:#56d0cd; --teal-soft:#11302f;
+  --shadow:0 8px 24px rgba(0,0,0,.35); --on:#0c1018; color-scheme:dark}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.4;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit}
+.app{max-width:520px;margin:0 auto;min-height:100%}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 6px}
+.brand{font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:-.01em;color:var(--accent);margin-bottom:6px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.eyebrow{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+h1{font-family:var(--display);font-weight:800;font-size:1.75rem;margin:2px 0 0;letter-spacing:-.02em;line-height:1.05}
+.ring{--p:0;--c:var(--done);width:56px;height:56px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0)}
+.ring span{width:45px;height:45px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-weight:800;font-size:.82rem;font-variant-numeric:tabular-nums}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 6px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.pill{flex:none;width:50px;padding:8px 0;border-radius:16px;border:1px solid var(--line);background:var(--card);
+  display:grid;gap:1px;justify-items:center;cursor:pointer;position:relative}
+.pill small{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.pill b{font-family:var(--display);font-size:1.2rem}
+.pill i{display:block;width:22px;height:3px;border-radius:2px;background:var(--line);margin-top:3px;overflow:hidden}
+.pill i u{display:block;height:100%;background:var(--done)}
+.pill.sel{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.pill.sel small{color:var(--bg);opacity:.75}
+.pill .dot{position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--due)}
+.pill.isToday:not(.sel){border-color:var(--accent);border-width:2px}
+main{padding-block:6px 130px;display:grid;gap:12px;align-content:start}
+.hero{border-radius:22px;padding:16px 18px;color:var(--on);background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;gap:6px;box-shadow:var(--shadow)}
+.hero .lab{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;opacity:.85;font-weight:700}
+.hero .txt{font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.2}
+.hero .nx{font-size:.84rem;opacity:.88}
+.hero .cd{font-variant-numeric:tabular-nums;font-weight:700}
+.nudge{border-radius:18px;background:var(--warm-soft);border:1px solid color-mix(in srgb,var(--warm) 30%,transparent);padding:12px 14px;display:grid;gap:10px}
+.nudge h3{margin:0;font-size:.95rem;color:var(--warm);display:flex;gap:8px;align-items:center}
+.nrow{display:grid;gap:6px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--warm) 35%,transparent)}
+.nrow:first-of-type{border-top:0;padding-top:0}
+.nrow .body{font-weight:600}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 12px;font-size:.8rem;font-weight:700;cursor:pointer}
+.chip.ok{background:var(--done);border-color:var(--done);color:#fff}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.due{display:flex;gap:8px;align-items:center;background:var(--due-soft);color:var(--due);font-weight:700;font-size:.88rem;border-radius:14px;padding:10px 12px}
+.list{background:var(--card);border-radius:20px;padding:4px 14px;box-shadow:var(--shadow)}
+.t{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}
+.t:first-child{border-top:0}
+.t input{appearance:none;width:24px;height:24px;margin:0;border:2px solid var(--line);border-radius:8px;display:grid;place-items:center;cursor:pointer;background:var(--card);transition:transform .15s}
+.t input:active{transform:scale(.88)}
+.t input:checked{background:var(--done);border-color:var(--done)}
+.t input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.t input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.t.cur{background:var(--accent-soft);margin:0 -14px;padding-left:14px;padding-right:14px}
+.t.miss .meta>span:first-child{color:var(--warm);font-weight:700}
+.what{min-width:0}
+/* tab intro cards */
+.tip{--tc:var(--accent);position:relative;overflow:hidden;border-radius:22px;padding:16px 16px 14px;background:var(--card);box-shadow:var(--shadow);display:grid;gap:10px;border:1.5px solid color-mix(in srgb,var(--tc) 35%,transparent)}
+.tip::before{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:color-mix(in srgb,var(--tc) 14%,transparent)}
+.tiphead{display:flex;gap:12px;align-items:center;position:relative}
+.tipicon{width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;background:color-mix(in srgb,var(--tc) 16%,var(--card))}
+.tiphead small{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--tc)}
+.tiphead b{font-family:var(--display);font-size:1.25rem;line-height:1.15;display:block;text-wrap:balance}
+.tip ul{margin:0;padding-left:18px;display:grid;gap:5px;color:var(--muted);position:relative}
+.tipbtn{justify-self:start;position:relative;border:0;border-radius:12px;background:var(--tc);color:var(--on);font-weight:800;padding:9px 16px;cursor:pointer}
+.tipbtn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+/* egg progress */
+
+
+/* dock active pill */
+nav button:not(.fab).on{background:var(--accent-soft)}
+/* intro */
+.intro{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;display:grid;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.obcard{max-width:440px;width:100%;margin:0 auto;box-sizing:border-box;padding-block:22px 28px;display:grid;grid-template-rows:auto auto 1fr;gap:14px;min-height:100%}
+.obback{justify-self:start;background:none;border:0;color:var(--muted);font-weight:700;cursor:pointer;padding:4px 0}
+.obdots{display:flex;gap:6px;justify-content:center}
+.obdots i{width:8px;height:8px;border-radius:99px;background:var(--line);transition:width .25s}
+.obdots i.on{width:24px;background:var(--accent)}
+.obdots i.past{background:var(--accent-2)}
+.obbody{display:grid;gap:14px;align-content:center}
+.obbody h2{font-family:var(--display);font-weight:800;font-size:2.1rem;line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.obbody p{margin:0;color:var(--muted);font-size:1rem}
+.obin{width:100%;box-sizing:border-box;border:2px solid var(--line);border-radius:16px;padding:14px 16px;font:inherit;font-size:1.2rem;font-weight:600;background:var(--card);color:var(--fg)}
+.obin:focus-visible{outline:none;border-color:var(--accent)}
+.obart{position:relative;height:200px;display:grid;place-items:center}
+.obart b{position:relative;width:88px;height:88px;border-radius:28px;display:grid;place-items:center;font-size:2.4rem;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 14px 34px color-mix(in srgb,var(--accent) 40%,transparent)}
+.obart.done{height:150px}
+.obart.done b{background:var(--done);box-shadow:0 14px 34px color-mix(in srgb,var(--done) 35%,transparent)}
+.orb{position:absolute;border-radius:50%;opacity:.9}
+.o1{width:54px;height:54px;background:var(--teal-soft);border:2px solid var(--teal);left:14%;top:18%}
+.o2{width:38px;height:38px;background:var(--warm-soft);border:2px solid var(--warm);right:16%;top:12%}
+.o3{width:46px;height:46px;background:var(--done-soft);border:2px solid var(--done);right:22%;bottom:10%}
+@media (prefers-reduced-motion:no-preference){.orb{animation:float 4s ease-in-out infinite}.o2{animation-delay:-1.3s}.o3{animation-delay:-2.6s}.obbody{animation:in .35s ease-out}}
+@keyframes float{50%{transform:translateY(-10px)}}
+.obtour{display:grid;gap:10px}
+.obtour div{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;background:var(--card);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow)}
+.obtour span{grid-row:span 2;width:34px;height:34px;border-radius:11px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:800}
+.obtour small{color:var(--muted);font-size:.85rem}
+/* coach */
+.chat{display:grid;gap:8px}
+.bub{max-width:85%;padding:10px 13px;border-radius:18px;line-height:1.45;overflow-wrap:anywhere}
+.bub.ai{background:var(--card);box-shadow:var(--shadow);border-bottom-left-radius:6px;justify-self:start}
+.bub.me{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on);border-bottom-right-radius:6px;justify-self:end}
+.typing{display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none}
+.chips button:disabled{opacity:.5}
+.composer{display:grid;grid-template-columns:1fr 46px;gap:8px;align-items:end;background:var(--card);border-radius:20px;padding:6px;box-shadow:var(--shadow)}
+.composer textarea{border:0;background:transparent;resize:none;min-height:40px;padding:10px}
+.send{width:46px;height:46px;border-radius:15px;border:0;background:var(--accent);color:var(--on);display:grid;place-items:center;cursor:pointer;font-size:1rem}
+.send svg{width:20px;height:20px;fill:var(--on)}
+.send:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+/* calendar timeline */
+.cal{position:relative;display:grid;gap:8px}
+.cal::before{content:"";position:absolute;left:58px;top:6px;bottom:6px;width:2px;background:var(--line);border-radius:2px}
+.slot{display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:stretch}
+.slot .tm{text-align:right;padding-top:10px;font-variant-numeric:tabular-nums;line-height:1.1}
+.slot .tm b{display:block;font-size:.88rem}
+.slot .tm small{font-size:.66rem;color:var(--muted);font-weight:700}
+.any{display:grid;gap:8px}
+.ev{--c:var(--muted);--s:var(--card);display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;background:var(--s);border-radius:16px;padding:11px 12px;border-left:4px solid var(--c);box-shadow:var(--shadow);cursor:pointer;min-width:0;position:relative}
+.ev.sum{--c:var(--accent);--s:color-mix(in srgb,var(--accent-soft) 70%,var(--card))}
+.ev.hw{--c:var(--muted)}
+.ev.gym,.ev.swim{--c:var(--done);--s:color-mix(in srgb,var(--done-soft) 70%,var(--card))}
+.ev.pray,.ev.brk{--c:var(--warm);--s:color-mix(in srgb,var(--warm-soft) 60%,var(--card))}
+.ev.cur{outline:2px solid var(--accent);outline-offset:1px}
+.ev.miss{border-left-style:dashed}
+.ev.miss .meta>span:first-child{color:var(--warm);font-weight:700}
+.ev input{appearance:none;width:22px;height:22px;margin:0;border:2px solid var(--c);border-radius:7px;display:grid;place-items:center;cursor:pointer;background:var(--card)}
+.ev input:checked{background:var(--done);border-color:var(--done)}
+.ev input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.ev input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ev input:checked + .what{opacity:.45}
+.ev input:checked + .what .body{text-decoration:line-through}
+.ev::before{content:"";position:absolute;left:-14px;top:15px;width:10px;height:10px;border-radius:50%;background:var(--c);border:2px solid var(--bg)}
+.any .ev::before{display:none}
+.nowline{display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:center;position:relative}
+.nowline span{font-size:.7rem;font-weight:800;color:var(--due);text-align:right;font-variant-numeric:tabular-nums}
+.nowline i{height:2px;background:var(--due);border-radius:2px;position:relative}
+.nowline i::before{content:"";position:absolute;left:-14px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--due)}
+.meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;margin-bottom:2px}
+.t input:checked + .what{opacity:.45}
+.t input:checked + .what .body{text-decoration:line-through}
+.k{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;font-weight:800;border-radius:99px;padding:2px 7px}
+.k.sum{background:var(--accent-soft);color:var(--accent)}
+.k.hw{background:var(--card2);color:var(--muted);border:1px solid var(--line)}
+.k.gym,.k.swim{background:var(--done-soft);color:var(--done)}
+.k.brk,.k.pray{background:var(--warm-soft);color:var(--warm)}
+.k.new{background:var(--accent);color:var(--on)}
+.k.miss{background:var(--warm);color:#fff}
+.rm{margin-left:auto;background:none;border:0;color:var(--muted);font-size:.75rem;text-decoration:underline;cursor:pointer;padding:0}
+.sec{font-family:var(--display);font-weight:700;font-size:1.1rem;margin:8px 2px 0;display:flex;justify-content:space-between;align-items:baseline}
+.sec small{font-family:var(--body);font-weight:500;font-size:.8rem;color:var(--muted)}
+.wk{background:var(--card);border:0;border-radius:18px;padding:13px 15px;display:grid;gap:7px;cursor:pointer;text-align:left;width:100%;box-shadow:var(--shadow)}
+.wk .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.wk b{font-family:var(--display);font-size:1.05rem}
+.bar{height:7px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--done);border-radius:99px}
+.wk .d{font-size:.82rem;color:var(--due);font-weight:700}
+.wk .c{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.card{background:var(--card);border-radius:20px;padding:15px 16px;box-shadow:var(--shadow)}
+.card ul{margin:0;padding-left:18px;display:grid;gap:8px}
+.fine{font-size:.8rem;color:var(--muted);margin:10px 0 0}
+.lead{margin:0;color:var(--muted)}
+.shot{border:2px dashed var(--line);border-radius:18px;min-height:130px;display:grid;place-items:center;align-content:center;gap:8px;color:var(--accent);font-weight:700;cursor:pointer;text-align:center;padding:12px;overflow:hidden;background:var(--card2)}
+.shot.teal{color:var(--teal)}
+.shot.off{color:var(--muted);cursor:default}
+.shot svg{width:36px;height:36px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.shot img{max-height:240px;border-radius:12px;object-fit:contain}
+.stack{display:grid;gap:12px}
+textarea,select{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font:inherit;color:var(--fg);background:var(--card2);resize:vertical}
+textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.row2{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.primary,.ghost{font-weight:700;border-radius:14px;padding:12px 16px;cursor:pointer;border:1px solid var(--accent)}
+.primary{background:var(--accent);color:var(--on);flex:1}
+.primary.teal{background:var(--teal);border-color:var(--teal)}
+.primary:disabled{opacity:.6;cursor:default}
+.ghost{background:transparent;color:var(--accent)}
+.ghost.teal{color:var(--teal);border-color:var(--teal)}
+.primary:focus-visible,.ghost:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.msg{margin:0;font-size:.88rem;color:var(--muted)}
+.num{width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:.8rem;display:grid;place-items:center}
+/* health */
+.fuel{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:var(--card);border-radius:18px;padding:12px;box-shadow:var(--shadow);display:grid;gap:2px;min-width:0}
+.stat small{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.stat b{font-family:var(--display);font-size:1.45rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.75rem;color:var(--muted)}
+label.stat{font-size:.72rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;box-shadow:none;background:var(--card2);gap:6px}
+label.stat input{width:100%;box-sizing:border-box;border:0;background:transparent;font:inherit;font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--fg);padding:0;text-transform:none;letter-spacing:0}
+label.stat input:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+.water{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.glass{width:30px;height:38px;border:2px solid var(--teal);border-radius:4px 4px 9px 9px;background:transparent;cursor:pointer;position:relative;overflow:hidden;padding:0}
+.glass.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:75%;background:var(--teal);opacity:.75}
+.glass:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.meal{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:11px 0;border-top:1px solid var(--line)}
+.meal:first-child{border-top:0}
+.meal .n{font-weight:600;min-width:0}
+.meal .kc{font-variant-numeric:tabular-nums;font-weight:700;text-align:right}
+.meal .s{font-size:.78rem;color:var(--muted);grid-column:1/-1;display:flex;gap:8px;align-items:center}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{border:1px solid var(--line);background:var(--card2);border-radius:99px;padding:8px 12px;font-size:.84rem;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--teal);border-color:var(--teal);color:var(--on)}
+.planmd{display:grid;gap:10px}
+.pm{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.pm:first-child{border-top:0}
+.pm .tm{font-size:.78rem;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+.pm .fd{min-width:0}
+.pm .fd small{display:block;color:var(--muted);font-size:.8rem}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:14px;font-weight:600;font-size:.88rem;z-index:9;max-width:calc(100% - 48px);box-shadow:var(--shadow)}
+/* dock */
+nav{position:fixed;left:0;right:0;bottom:0;z-index:6;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));pointer-events:none}
+nav .in{pointer-events:auto;max-width:480px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:4px}
+nav button{background:none;border:0;color:var(--muted);padding:8px 0 7px;display:grid;justify-items:center;gap:2px;font-size:.7rem;font-weight:700;cursor:pointer;border-radius:18px}
+nav button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--accent)}
+nav button.fab{color:var(--on)}
+nav button.fab .b{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;margin-top:-26px;box-shadow:0 8px 18px color-mix(in srgb,var(--accent) 40%,transparent)}
+nav button.fab span{color:var(--muted)}
+nav button.fab.on span{color:var(--accent)}
+nav button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.badge{position:absolute;margin:-2px 0 0 18px;min-width:16px;height:16px;border-radius:99px;background:var(--warm);color:#fff;font-size:.62rem;display:grid;place-items:center;padding:0 4px}
+@media (prefers-reduced-motion:no-preference){main>*{animation:in .28s ease-out both}main>*:nth-child(2){animation-delay:.03s}main>*:nth-child(3){animation-delay:.06s}}
+@keyframes in{from{transform:translateY(6px)}to{transform:none}}
+
+.logo{display:inline-flex;align-items:center;gap:7px}
+.logo i{width:18px;height:18px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--teal));display:inline-block;transform:rotate(12deg)}
+.hbtn{background:var(--card);border:1px solid var(--line);border-radius:14px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;flex:none}
+.hbtn svg{width:20px;height:20px;stroke:var(--fg);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.right{display:flex;gap:10px;align-items:center}
+.days{display:flex;gap:5px}
+.days button{flex:1;min-width:0;padding:0;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card2);font-weight:700;font-size:.8rem;cursor:pointer}
+.days button.on{background:var(--accent);border-color:var(--accent);color:var(--on)}
+.days button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.field{display:grid;gap:6px;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;min-width:0}
+.field input,.field select{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:1rem;font-weight:600;color:var(--fg);background:var(--card2);text-transform:none;letter-spacing:0}
+.field input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{display:grid;gap:10px}
+.choice button{text-align:left;border:2px solid var(--line);background:var(--card);border-radius:18px;padding:14px 16px;cursor:pointer;display:grid;gap:2px}
+.choice button b{font-size:1.05rem}
+.choice button small{color:var(--muted)}
+.choice button.on{border-color:var(--accent);background:var(--accent-soft)}
+.choice button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.addbar{display:flex;gap:8px}
+.addbar .primary{flex:none}
+.k.school{background:var(--card2);color:var(--fg);border:1px solid var(--line)}
+.k.due{background:var(--due);color:var(--on)}
+.ev.school{--c:var(--fg);--s:var(--card2);cursor:default}
+.ev.due{--c:var(--due);--s:color-mix(in srgb,var(--due-soft) 70%,var(--card))}
+.empty{text-align:center;padding:26px 16px;display:grid;gap:8px;justify-items:center}
+.empty b{font-family:var(--display);font-size:1.2rem}
+.empty p{margin:0;color:var(--muted);max-width:30ch}
+.setsec{display:grid;gap:12px}
+.danger{color:var(--due);border-color:var(--due)}
+.badge{top:-6px;left:12px;margin:0}
+nav button.fab .b{color:var(--on)!important}
+nav button.fab .b svg{width:26px;height:26px;stroke-width:2.4}
+.logo .egg{width:17px;height:21px;flex:none;filter:drop-shadow(0 2px 4px color-mix(in srgb,var(--accent) 35%,transparent))}
+.obart b.eggart{background:none;box-shadow:none;width:auto;height:auto}
+.obart .eggart .egg{width:92px;height:115px;filter:drop-shadow(0 16px 28px color-mix(in srgb,var(--accent-2) 45%,transparent))}
+@media (prefers-reduced-motion:no-preference){.obart .eggart .egg{animation:float 4.5s ease-in-out infinite}}
+/* right-to-left (Arabic) */
+[dir=rtl] .cal::before{left:auto;right:58px}
+[dir=rtl] .ev{border-left:0;border-right:4px solid var(--c)}
+[dir=rtl] .ev.miss{border-right-style:dashed}
+[dir=rtl] .ev::before{left:auto;right:-14px}
+[dir=rtl] .slot .tm,[dir=rtl] .nowline span{text-align:left}
+[dir=rtl] .nowline i::before{left:auto;right:-14px}
+[dir=rtl] ul{padding-left:0;padding-right:18px}
+[dir=rtl] .rm{margin-left:0;margin-right:auto}
+[dir=rtl] .bub.ai{border-bottom-left-radius:18px;border-bottom-right-radius:6px}
+[dir=rtl] .bub.me{border-bottom-right-radius:18px;border-bottom-left-radius:6px}
+[dir=rtl] .badge{left:auto;right:12px}
+[dir=rtl] .tip::before{right:auto;left:-40px}
+[dir=rtl] .obback,[dir=rtl] .eyebrow,[dir=rtl] .tiphead small{letter-spacing:0}
+[dir=rtl] .eyebrow,[dir=rtl] .k,[dir=rtl] .field,[dir=rtl] .hero .lab{letter-spacing:0}
+[dir=rtl] .send svg{transform:scaleX(-1)}
+.obbody>.seg{justify-content:center}
+.credit{margin:6px 0 0;text-align:center;font-size:.8rem;color:var(--muted)}
+.credit b{color:var(--fg)}
+</style>
+<div class="app">
+  <header class="pad">
+    <div class="brand logo"><svg class="egg" viewBox="0 0 24 30" aria-hidden="true"><defs><linearGradient id="eg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent-2)"/><stop offset="1" stop-color="var(--teal)"/></linearGradient></defs><path d="M12 1.2C6.6 1.2 2.2 9.6 2.2 17.6 2.2 24 6.6 28.8 12 28.8s9.8-4.8 9.8-11.2C21.8 9.6 17.4 1.2 12 1.2z" fill="url(#eg1)"/><path d="M5.6 17.2h12.8" stroke="var(--on)" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><path d="M7.4 9.4c1.1-2.6 2.7-4.4 4.6-4.9" stroke="#fff" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".55"/></svg>ghulife</div>
+    <div class="top">
+      <div style="min-width:0"><div class="eyebrow" id="hello">Plan</div><h1 id="htitle">Today</h1></div>
+      <div class="right"><button class="hbtn" id="themebtn" aria-label="Switch light or dark mode"><svg id="themeico" viewBox="0 0 24 24"></svg></button><button class="hbtn" id="gear" aria-label="Settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+      <div class="ring" id="ring"><span id="ringtxt">0%</span></div></div>
+    </div>
+    <div class="strip" id="strip"></div>
+  </header>
+  <main class="pad" id="view"></main>
+</div>
+<div class="toast" id="toast" hidden></div>
+<div class="intro" id="intro" hidden role="dialog" aria-modal="true" aria-label="Welcome to ghulife"></div>
+<nav><div class="in">
+  <button id="tab-day" class="on"><span style="position:relative"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b class="badge" id="nbadge" hidden></b></span>Today</button>
+  <button id="tab-week"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Week</button>
+  <button id="tab-scan" class="fab"><span class="b"><svg viewBox="0 0 24 24"><path d="M4 8V5h3M17 5h3v3M20 16v3h-3M7 19H4v-3"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>Scan task</span></button>
+  <button id="tab-health"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Health</button>
+  <button id="tab-coach"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.6L12 15l-1.8-4.4L5.5 9l4.7-1.4z"/><path d="M18 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>Eggwairi</button>
+</div></nav>
+
+<script>
+/* =========================================================
+   ghulife: a personal planner. Every person sets up their own week.
+   ========================================================= */
+const WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const CITIES={
+ "Riyadh":[24.7136,46.6753,"Asia/Riyadh","uaq"],"Jeddah":[21.4858,39.1925,"Asia/Riyadh","uaq"],"Makkah":[21.3891,39.8579,"Asia/Riyadh","uaq"],
+ "Madinah":[24.5247,39.5692,"Asia/Riyadh","uaq"],"Dammam":[26.4207,50.0888,"Asia/Riyadh","uaq"],"Khobar":[26.2172,50.1971,"Asia/Riyadh","uaq"],
+ "Abha":[18.2465,42.5117,"Asia/Riyadh","uaq"],"Tabuk":[28.3835,36.5662,"Asia/Riyadh","uaq"],"Dubai":[25.2048,55.2708,"Asia/Dubai","gulf"],
+ "Abu Dhabi":[24.4539,54.3773,"Asia/Dubai","gulf"],"Doha":[25.2854,51.531,"Asia/Qatar","gulf"],"Kuwait City":[29.3759,47.9774,"Asia/Kuwait","gulf"],
+ "Manama":[26.2235,50.5876,"Asia/Bahrain","gulf"],"Muscat":[23.588,58.3829,"Asia/Muscat","gulf"],"Cairo":[30.0444,31.2357,"Africa/Cairo","egypt"],
+ "Amman":[31.9454,35.9284,"Asia/Amman","mwl"],"Istanbul":[41.0082,28.9784,"Europe/Istanbul","mwl"],"Karachi":[24.8607,67.0011,"Asia/Karachi","karachi"],
+ "Lahore":[31.5204,74.3587,"Asia/Karachi","karachi"],"Jakarta":[-6.2088,106.8456,"Asia/Jakarta","mwl"],"Kuala Lumpur":[3.139,101.6869,"Asia/Kuala_Lumpur","mwl"],
+ "London":[51.5072,-0.1276,"Europe/London","mwl"],"Paris":[48.8566,2.3522,"Europe/Paris","mwl"],"Berlin":[52.52,13.405,"Europe/Berlin","mwl"],
+ "New York":[40.7128,-74.006,"America/New_York","isna"],"Chicago":[41.8781,-87.6298,"America/Chicago","isna"],"Los Angeles":[34.0522,-118.2437,"America/Los_Angeles","isna"],
+ "Toronto":[43.6532,-79.3832,"America/Toronto","isna"],"Sydney":[-33.8688,151.2093,"Australia/Sydney","mwl"]
+};
+/* Calculation methods: [fajr angle, isha angle or minutes after maghrib] */
+const METHODS={uaq:[18.5,"90m"],gulf:[19.5,"90m"],mwl:[18,17],isna:[15,15],egypt:[19.5,17.5],karachi:[18,18]};
+const ACT=[["Light (little or no training)",0],["Active (train 3-4 days a week)",1],["Very active (train 5+ days a week)",2]];
+
+/* ---------- State ---------- */
+const BLANK={onboarded:false,name:"",schoolDays:[0,1,2,3,4],schoolStart:"07:30",schoolEnd:"14:30",wake:"06:00",bed:"22:30",
+  trainDays:[],trainTime:"17:30",muslim:false,city:"Riyadh",profile:null,tasks:[],saved:{},moved:{},food:{},water:{},fuelPlan:null,seenTabs:{},theme:"system",lang:(()=>{const l=(navigator.language||"en").slice(0,2);return l==="ar"||l==="es"?l:"en"})()};
+let S=JSON.parse(JSON.stringify(BLANK));
+try{const o=JSON.parse(localStorage.getItem("ghulife")||"null");if(o)S=Object.assign(S,o)}catch(e){}
+let docRef=null,writing=false,dirty=false,wTimer=null;
+function persist(){try{localStorage.setItem("ghulife",JSON.stringify(S))}catch(e){}
+  if(!docRef)return;dirty=true;clearTimeout(wTimer);wTimer=setTimeout(flush,700)}
+async function flush(){if(!docRef||writing||!dirty)return;writing=true;dirty=false;
+  try{await docRef.set(JSON.parse(JSON.stringify(S)))}catch(e){}writing=false;if(dirty)flush()}
+(async()=>{
+  if(!window.__ai?.use)return;
+  const [db,user]=await Promise.all([window.__ai.use("db"),window.__ai.use("user")]);if(!db||!user)return;
+  const uid=await user.id();if(!uid)return;
+  docRef=db.doc("data/users/"+uid+"/ghulife");
+  try{const snap=await docRef.get();
+    if(snap.exists){S=Object.assign(JSON.parse(JSON.stringify(BLANK)),snap.data());try{localStorage.setItem("ghulife",JSON.stringify(S))}catch(e){}
+      applyTheme();document.getElementById("intro").innerHTML="";render()}
+    else if(S.onboarded){dirty=true;flush()}}catch(e){}
+})();
+
+/* ---------- Helpers ---------- */
+let now=new Date();
+const ds=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const parseD=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const addD=(s,n)=>{const d=parseD(s);d.setDate(d.getDate()+n);return ds(d)};
+let todayStr=ds(now);
+const nowMin=()=>now.getHours()*60+now.getMinutes();
+const hm=s=>{const [h,m]=String(s||"0:0").split(":").map(Number);return h*60+(m||0)};
+function fmt(min){min=((Math.round(min)%1440)+1440)%1440;let h=Math.floor(min/60),m=min%60,P=(typeof S!=="undefined"&&S.lang==="ar")?["ص","م"]:(typeof S!=="undefined"&&S.lang==="es")?["a.m.","p.m."]:["AM","PM"],ap=h>=12?P[1]:P[0];h=h%12||12;return `${h}:${String(m).padStart(2,"0")} ${ap}`}
+const range=(a,b)=>`${fmt(a)} – ${fmt(b)}`;
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const uid=()=>"c"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+let toastT=null;function toast(m){const t=document.getElementById("toast");t.textContent=typeof tr==="function"?tr(m):m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,2600)}
+function on(i,f){const b=document.getElementById(i);if(b)b.addEventListener("click",f)}
+
+/* ---------- Prayer times (astronomical calculation for the chosen city) ---------- */
+const rad=d=>d*Math.PI/180,deg=r=>r*180/Math.PI,fixA=a=>((a%360)+360)%360,fixH=h=>((h%24)+24)%24;
+function tzOffsetHours(tz,date){
+  try{const p=new Intl.DateTimeFormat("en-US",{timeZone:tz,hourCycle:"h23",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}).formatToParts(date);
+    const g=t=>+p.find(x=>x.type===t).value;const asUTC=Date.UTC(g("year"),g("month")-1,g("day"),g("hour"),g("minute"));
+    return Math.round((asUTC-date.getTime())/60000)/60}catch(e){return -date.getTimezoneOffset()/60}
+}
+function prayerTimes(dateStr,city){
+  const c=CITIES[city]||CITIES.Riyadh,[lat,lng,tz,mk]=c,M=METHODS[mk]||METHODS.mwl;
+  const [y,mo,d]=dateStr.split("-").map(Number);
+  const tzh=tzOffsetHours(tz,new Date(Date.UTC(y,mo-1,d,12)));
+  const jd0=367*y-Math.floor(7*(y+Math.floor((mo+9)/12))/4)+Math.floor(275*mo/9)+d+1721013.5;
+  function sun(hour){const D=jd0+hour/24-lng/360-2451545;
+    const g=fixA(357.529+0.98560028*D),q=fixA(280.459+0.98564736*D),L=fixA(q+1.915*Math.sin(rad(g))+0.02*Math.sin(rad(2*g)));
+    const e=23.439-0.00000036*D,RA=fixH(deg(Math.atan2(Math.cos(rad(e))*Math.sin(rad(L)),Math.cos(rad(L))))/15);
+    return{decl:deg(Math.asin(Math.sin(rad(e))*Math.sin(rad(L)))),eqt:q/15-RA}}
+  const noon=h=>fixH(12-sun(h).eqt);
+  function angleTime(angle,h,ccw){const s=sun(h),n=noon(h);
+    const x=(-Math.sin(rad(angle))-Math.sin(rad(s.decl))*Math.sin(rad(lat)))/(Math.cos(rad(s.decl))*Math.cos(rad(lat)));
+    const T=deg(Math.acos(Math.max(-1,Math.min(1,x))))/15;return n+(ccw?-T:T)}
+  function asrTime(h){const s=sun(h);const a=-deg(Math.atan(1/(1+Math.tan(rad(Math.abs(lat-s.decl))))));return angleTime(a,h,false)}
+  // two passes for accuracy
+  let t={fajr:5,sunrise:6,dhuhr:12,asr:13,maghrib:18,isha:18};
+  for(let i=0;i<2;i++){
+    t={fajr:angleTime(M[0],t.fajr,true),sunrise:angleTime(0.833,t.sunrise,true),dhuhr:noon(t.dhuhr),asr:asrTime(t.asr),
+       maghrib:angleTime(0.833,t.maghrib,false),isha:typeof M[1]==="string"?null:angleTime(M[1],t.isha,false)};
+    if(t.isha===null)t.isha=t.maghrib+parseInt(M[1])/60;
+  }
+  const out={};for(const k in t){out[k]=Math.round((t[k]+tzh-lng/15)*60)+(k==="dhuhr"?1:0)}
+  return out; // minutes after local midnight
+}
+
+/* ---------- Building each day ---------- */
+const KIND={sum:"Study",hw:"Homework",due:"Deadline",gym:"Training",swim:"Swim",brk:"Break",pray:"Prayer",routine:"Routine",school:"School"};
+function dayItems(dstr){
+  const wd=parseD(dstr).getDay(),items=[];
+  items.push({id:dstr+":wake",s:hm(S.wake),e:hm(S.wake)+30,text:"Wake up, brush teeth, breakfast",kind:"routine"});
+  const school=S.schoolDays.includes(wd);
+  if(school)items.push({id:dstr+":school",s:hm(S.schoolStart),e:hm(S.schoolEnd),text:"School",kind:"school",fixed:true});
+  if(S.muslim){const p=prayerTimes(dstr,S.city);
+    [["fajr","Fajr"],["dhuhr","Dhuhr"],["asr","Asr"],["maghrib","Maghrib"],["isha","Isha"]].forEach(([k,n])=>{
+      let note="";if(school&&p[k]>=hm(S.schoolStart)&&p[k]<hm(S.schoolEnd))note=" (at school)";
+      items.push({id:dstr+":p:"+k,s:p[k],e:p[k]+15,text:n+" prayer"+note,kind:"pray",exact:true})})}
+  if(S.trainDays.includes(wd))items.push({id:dstr+":train",s:hm(S.trainTime),e:hm(S.trainTime)+60,text:"Training session",kind:"gym"});
+  items.push({id:dstr+":bed",s:hm(S.bed)-30,e:hm(S.bed),text:"Brush teeth, phone away, get ready for bed",kind:"routine"});
+  S.tasks.filter(t=>t.d===dstr).forEach(t=>items.push({id:t.id,s:t.s??null,e:t.e??null,text:t.text,kind:t.kind||"sum",custom:true,src:t.src}));
+  return items.filter(x=>!S.moved[x.id]).sort((a,b)=>(a.s??9999)-(b.s??9999));
+}
+const label=x=>x.s==null?"Anytime":x.exact?"~"+fmt(x.s):x.e!=null&&x.e!==x.s?range(x.s,x.e):fmt(x.s);
+const checkable=x=>!x.fixed;
+function dayStats(d){const it=dayItems(d).filter(checkable);return{c:it.filter(x=>S.saved[x.id]).length,n:it.length}}
+const DAYS=()=>Array.from({length:14},(_,i)=>addD(todayStr,i-1));
+let sel=todayStr,tab="day";
+const NAG=new Set(["sum","hw","due","gym","swim"]);
+function missed(){
+  const out=[];if(!S.since)return out;const sinceD=S.since.slice(0,10),sinceM=+S.since.slice(11);
+  for(let i=3;i>=0;i--){const d=addD(todayStr,-i);if(d<sinceD)continue;
+    dayItems(d).forEach(x=>{if(S.saved[x.id]||!NAG.has(x.kind))return;if(d===sinceD&&x.s!=null&&x.s<sinceM&&!x.custom)return;
+      if(i>0){if(x.custom||x.kind==="gym")out.push({d,...x})}
+      else if(x.s!=null&&(x.e??x.s+30)+10<nowMin())out.push({d,...x})})}
+  return out;
+}
+function dueSoon(){return S.tasks.filter(t=>t.kind==="due"&&t.d>=todayStr&&!S.saved[t.id]).sort((a,b)=>a.d<b.d?-1:1)}
+const dLabel=d=>{const x=parseD(d);return d===todayStr?tx("Today"):d===addD(todayStr,1)?tx("Tomorrow"):`${wdn(x.getDay())} ${x.getDate()} ${mon(x)}`};
+
+
+/* ---------- Languages: English, العربية, Español ---------- */
+const LANGS={en:["English","en-GB"],ar:["العربية","ar-SA-u-ca-gregory-nu-latn"],es:["Español","es-ES"]};
+const L=()=>LANGS[S.lang]?S.lang:"en";
+const LOC=()=>LANGS[L()][1];
+const wdn=i=>new Date(2026,9,11+i).toLocaleDateString(LOC(),{weekday:"short"}).replace(".","");
+const mon=d=>d.toLocaleString(LOC(),{month:"short"}).replace(".","");
+const langLine=()=>L()==="ar"?"Write every piece of text meant for the user in Arabic.":L()==="es"?"Write every piece of text meant for the user in Spanish.":"";
+const DICT={
+ar:{"Today":"اليوم","Week":"الأسبوع","Scan task":"مسح مهمة","Health":"الصحة","Plan":"الخطة","Tomorrow":"غدًا","Next 7 days":"الأيام السبعة القادمة","Your week":"أسبوعك","New task":"مهمة جديدة","Scan a task":"امسح مهمة","Fuel & recovery":"الطاقة والتعافي","Your AI coach":"مدربك الذكي","Make it yours":"اجعله لك","Settings":"الإعدادات",
+"Know exactly what to do, every minute.":"اعرف بالضبط ماذا تفعل، كل دقيقة.","Your day as a timeline. The red line is right now.":"يومك كخط زمني. الخط الأحمر هو الآن.","Tick a block when it's done and watch the ring fill.":"علّم كل مهمة عند إنجازها وشاهد الدائرة تمتلئ.","Miss one? It comes back with a reminder so nothing slips.":"فاتتك مهمة؟ ستعود لك بتذكير حتى لا يضيع شيء.",
+"Your whole week on one screen.":"أسبوعك كله في شاشة واحدة.","Deadlines coming up, with a countdown.":"المواعيد النهائية القادمة مع عدّ تنازلي.","See which days are on track.":"اعرف أي الأيام تسير على ما يرام.","Tap a day to jump into it.":"اضغط على يوم لفتحه.",
+"Snap it. Sorted.":"صوّرها. ورتّبناها.","Photograph any task sheet, rubric or teacher post.":"صوّر أي ورقة مهمة أو معايير تقييم أو منشور من المعلم.","It finds the due date and splits the work into small steps.":"يجد موعد التسليم ويقسّم العمل إلى خطوات صغيرة.","Tap add, and the steps land in your calendar.":"اضغط إضافة، وتظهر الخطوات في تقويمك.",
+"Fuel like an athlete.":"تغذَّ مثل الرياضيين.","Snap your plate for a quick calorie and protein estimate.":"صوّر طبقك لتقدير سريع للسعرات والبروتين.","Tap glasses to track water.":"اضغط على الأكواب لتتبع شرب الماء.","Get an eating plan built around your own day.":"احصل على خطة أكل مبنية حول يومك.",
+"An AI coach that knows your whole life.":"مدرب ذكي يعرف حياتك كلها.","It sees your plan, deadlines, food and training.":"يرى خطتك ومواعيدك وأكلك وتمارينك.","Say \"I'm tired, move my stuff\" and it actually moves it.":"قل «أنا تعبان، أجّل مهامي» وسيؤجلها فعلًا.","Ask it to quiz you, calm you down or plan your evening.":"اطلب منه أن يختبرك أو يهدّئك أو يخطط لمسائك.",
+"Got it":"فهمت","Done it":"أنجزتها","Move to tonight":"انقلها لليلة","Move to tomorrow":"انقلها لغد","Right now":"الآن","Up next":"التالي","Next in":"التالي بعد","Starts in":"يبدأ بعد",
+"Study":"مذاكرة","Homework":"واجب","Deadline":"موعد تسليم","Training":"تمرين","Swim":"سباحة","Break":"استراحة","Prayer":"صلاة","Routine":"روتين","School":"المدرسة","Other":"أخرى",
+"Wake up, brush teeth, breakfast":"استيقظ، نظّف أسنانك، تناول الفطور","Training session":"حصة تمرين","Brush teeth, phone away, get ready for bed":"نظّف أسنانك، أبعد الجوال، استعد للنوم",
+"What":"ماذا","Time":"الوقت","Type":"النوع","Cancel":"إلغاء","Add":"إضافة","+ Add a task":"+ أضف مهمة","📸 Scan":"📸 مسح","e.g. Read chapter 3 for English":"مثال: اقرأ الفصل الثالث للإنجليزي","Add to today":"أضف إلى اليوم",
+"Anytime":"أي وقت","Schedule":"الجدول","Missed":"فائتة","Remove":"حذف","Nothing to study yet":"لا شيء للمذاكرة بعد","Scan a task sheet or tell Eggwairi what's coming up, and your week fills itself in.":"امسح ورقة مهمة أو أخبر إقويري بما هو قادم، وسيمتلئ أسبوعك تلقائيًا.","Scan my first task":"امسح أول مهمة",
+"Added":"تمت الإضافة","Moved to tonight":"نُقلت إلى الليلة","Moved to tomorrow":"نُقلت إلى الغد","Nice, ticked off ✓":"رائع، تم ✓","Day complete! 🎉":"أنجزت يومك! 🎉","Type what the task is first.":"اكتب المهمة أولًا.","Added to your plan":"أُضيفت إلى خطتك","Saved":"تم الحفظ","Tips will show on each tab":"ستظهر النصائح في كل تبويب","Fuel target set":"تم تحديد هدف الطاقة","⏰ A task just slipped. Check Today.":"⏰ فاتتك مهمة للتو. افتح اليوم.",
+"Deadlines":"المواعيد النهائية","none":"لا يوجد","No deadlines yet. Scanned tasks and deadlines you add show up here with a countdown.":"لا مواعيد بعد. المهام الممسوحة والمواعيد التي تضيفها تظهر هنا مع عدّ تنازلي.","Day by day":"يومًا بيوم","1 day":"يوم واحد","No study tasks":"لا مهام مذاكرة",
+"AI features need you to sign in":"ميزات الذكاء الاصطناعي تحتاج تسجيل الدخول","Connecting…":"جارٍ الاتصال…","Sign in on this page to use scanning and Eggwairi. The rest of ghulife works without it.":"سجّل الدخول في هذه الصفحة لاستخدام المسح وإقويري. باقي ghulife يعمل بدونه.","One moment.":"لحظة واحدة.",
+"AI isn't switched on for this page yet. You can allow it from the page's permissions.":"الذكاء الاصطناعي غير مفعّل في هذه الصفحة بعد. يمكنك السماح به من أذونات الصفحة.","Photos can't be sent from here. Type it instead.":"لا يمكن إرسال الصور من هنا. اكتبها بدلًا من ذلك.","That photo didn't work. Try another one (JPG or PNG).":"لم تنجح هذه الصورة. جرّب صورة أخرى (JPG أو PNG).","Too many requests right now. Wait a bit and try again.":"طلبات كثيرة الآن. انتظر قليلًا وحاول مجددًا.","Couldn't read that clearly. Try again, or add a short note.":"لم أستطع قراءتها بوضوح. حاول مجددًا أو أضف ملاحظة قصيرة.","Can't help with that one. Try something different.":"لا أستطيع المساعدة في هذا. جرّب شيئًا آخر.","Something went wrong. Check your connection and try again.":"حدث خطأ. تحقق من اتصالك وحاول مجددًا.",
+"Snap a task sheet, rubric or teacher's post, or type what you got. It gets split into steps that fit around your day.":"صوّر ورقة المهمة أو معايير التقييم أو منشور المعلم، أو اكتب ما لديك. ستُقسَّم إلى خطوات تناسب يومك.","Take photo or choose image":"التقط صورة أو اختر صورة","Photos not available, type it below":"الصور غير متاحة، اكتبها بالأسفل","Or type it: History essay, 800 words, due next Tuesday":"أو اكتبها: مقال تاريخ، ٨٠٠ كلمة، التسليم الثلاثاء القادم","Clear photo":"إزالة الصورة","Organizing…":"جارٍ الترتيب…","Organize it":"رتّبها","Stop":"إيقاف","Add a photo or type the task first.":"أضف صورة أو اكتب المهمة أولًا.","Reading your task. This can take up to a minute.":"جارٍ قراءة مهمتك. قد يستغرق ذلك دقيقة.","Couldn't find a task in that. Try a clearer photo or type it out.":"لم أجد مهمة. جرّب صورة أوضح أو اكتبها.","Your task":"مهمتك","Discard":"تجاهل",
+"Your daily fuel":"طاقتك اليومية","Edit":"تعديل","kcal a day":"سعرة في اليوم","Tank full for today. Nice fueling 💪":"خزانك ممتلئ اليوم. تغذية ممتازة 💪","A rough estimate for your age, size and activity. Aim to reach it; it's not a limit.":"تقدير تقريبي حسب عمرك وحجمك ونشاطك. حاول الوصول إليه؛ إنه ليس حدًا أقصى.","Add a few details to see roughly how much energy your body needs.":"أضف بعض التفاصيل لترى تقريبًا كم يحتاج جسمك من الطاقة.","Male":"ذكر","Female":"أنثى","Age":"العمر","Height cm":"الطول سم","Weight kg":"الوزن كجم",
+"Light (little or no training)":"خفيف (تمرين قليل أو بدون)","Active (train 3-4 days a week)":"نشيط (تمرين ٣-٤ أيام أسبوعيًا)","Very active (train 5+ days a week)":"نشيط جدًا (تمرين ٥+ أيام أسبوعيًا)","Work it out":"احسبها","Check your numbers: age, height in cm, weight in kg.":"تحقق من الأرقام: العمر، الطول بالسنتيمتر، الوزن بالكيلوجرام.",
+"Energy":"الطاقة","kcal eaten":"سعرة مأكولة","Protein":"البروتين","for muscles":"للعضلات","Meals":"الوجبات","logged":"مسجّلة","Water":"الماء","Tap a glass to log it. Drink more on training days and in hot weather.":"اضغط على كوب لتسجيله. اشرب أكثر في أيام التمرين والجو الحار.","Scan your food":"امسح أكلك","rough estimate":"تقدير تقريبي","Snap your plate":"صوّر طبقك","Or type it: 2 eggs, toast, orange juice":"أو اكتبه: بيضتان، توست، عصير برتقال","Estimating…":"جارٍ التقدير…","Estimate it":"قدّرها","Looking at your food…":"جارٍ فحص أكلك…","Snap your plate or type what you ate.":"صوّر طبقك أو اكتب ما أكلت.","Couldn't spot any food. Try a clearer photo or type it.":"لم أجد أكلًا. جرّب صورة أوضح أو اكتبه.",
+"Breakfast":"الفطور","Lunch":"الغداء","Snack":"وجبة خفيفة","Dinner":"العشاء","Today's log":"سجل اليوم","nothing yet":"لا شيء بعد","Scan or type your first meal above.":"امسح أو اكتب أول وجبة بالأعلى.","My eating plan":"خطة أكلي","A simple day of meals that fits around your own schedule.":"يوم بسيط من الوجبات يناسب جدولك.","A simple day of meals that fits around your own schedule, all halal.":"يوم بسيط من الوجبات يناسب جدولك، وكلها حلال.","Build strength":"بناء القوة","More energy to study":"طاقة أكثر للمذاكرة","Eat healthier":"أكل صحي أكثر","Building your plan…":"جارٍ بناء خطتك…","Make a new plan":"اصنع خطة جديدة","Make my plan":"اصنع خطتي","Takes about 30 seconds…":"تستغرق حوالي ٣٠ ثانية…","Couldn't build a plan. Try again.":"تعذّر إنشاء خطة. حاول مجددًا.",
+"Calorie numbers are estimates and photos can be off by a lot. This is about fueling well, not cutting. For a personal plan, talk to a parent or doctor.":"أرقام السعرات تقديرية وقد تخطئ الصور كثيرًا. الهدف هو التغذية الجيدة وليس التقليل. لخطة شخصية، تحدث مع أحد والديك أو طبيب.",
+"Plan my evening":"خطط لمسائي","I'm stressed, help":"أنا متوتر، ساعدني","Move my tasks, I'm tired":"أجّل مهامي، أنا تعبان","What should I eat before training?":"ماذا آكل قبل التمرين؟","Quiz me on something":"اختبرني في شيء","Message Eggwairi…":"راسل إقويري…","Clear chat":"مسح المحادثة",
+"You":"أنت","Name":"الاسم","Your name":"اسمك","Your day":"يومك","School / work days":"أيام الدراسة / العمل","Starts":"يبدأ","Ends":"ينتهي","Wake up":"الاستيقاظ","Bedtime":"النوم","Training days (optional)":"أيام التمرين (اختياري)","Training time":"وقت التمرين","Prayer times":"أوقات الصلاة","🕌 Yes, add the 5 daily prayers":"🕌 نعم، أضف الصلوات الخمس","Times calculated for your city, every day":"أوقات محسوبة لمدينتك كل يوم","No thanks":"لا شكرًا","You can turn this on later in Settings":"يمكنك تفعيلها لاحقًا من الإعدادات","Your city":"مدينتك","Body":"الجسم","Used for your daily fuel estimate.":"تُستخدم لتقدير طاقتك اليومية.","Save changes":"حفظ التغييرات","More":"المزيد","Replay intro":"إعادة المقدمة","Show tab tips again":"أظهر النصائح مجددًا","Reset ghulife":"إعادة ضبط ghulife","This deletes all your tasks, food logs and settings. Are you sure?":"سيحذف هذا كل مهامك وسجلات أكلك وإعداداتك. هل أنت متأكد؟","Keep my data":"احتفظ ببياناتي","Delete everything":"احذف كل شيء","Look":"المظهر","Auto":"تلقائي","Light":"فاتح","Dark":"داكن","Language":"اللغة","Theme follows your phone":"المظهر يتبع جوالك","Dark mode on":"الوضع الداكن مفعّل","Light mode on":"الوضع الفاتح مفعّل",
+"Welcome to ghulife":"أهلًا بك في ghulife","Your life,":"حياتك،","finally organized.":"منظمة أخيرًا.","School, deadlines, training, food and sleep in one place, with an AI coach that has your back.":"الدراسة والمواعيد والتمرين والأكل والنوم في مكان واحد، مع مدرب ذكي يساندك.","Let's set it up":"لنبدأ الإعداد","Takes about a minute.":"يستغرق حوالي دقيقة.","First, what should we call you?":"أولًا، ماذا نناديك؟","Eggwairi, your coach, will greet you by name.":"سيحييك مدربك إقويري باسمك.","Continue":"متابعة","What does your week look like?":"كيف يبدو أسبوعك؟","This builds your calendar. You can change it any time.":"هذا يبني تقويمك. يمكنك تغييره في أي وقت.","Want prayer times in your day?":"هل تريد أوقات الصلاة في يومك؟","For Muslims. Each prayer gets its own block at the right time for your city.":"للمسلمين. كل صلاة لها وقتها الصحيح حسب مدينتك.","Your body, your fuel":"جسمك، طاقتك","Optional. Used to estimate how much energy you need each day.":"اختياري. يُستخدم لتقدير الطاقة التي تحتاجها يوميًا.","Skip":"تخطي","Check your numbers: age, height in cm, weight in kg. Or tap Skip.":"تحقق من الأرقام: العمر، الطول بالسنتيمتر، الوزن بالكيلوجرام. أو اضغط تخطي.","Four tabs.":"أربعة تبويبات.","Zero stress.":"صفر توتر.","I'm in":"أنا جاهز","Start by scanning your first task sheet, or just open your day and see your new calendar.":"ابدأ بمسح أول ورقة مهمة، أو افتح يومك وشاهد تقويمك الجديد.","Open my day":"افتح يومي","‹ Back":"رجوع ›","Takes about a minute":"يستغرق حوالي دقيقة","AI features are coming soon":"ميزات الذكاء الاصطناعي قادمة قريبًا","Task scanning, the food scanner and Eggwairi are on their way. Everything else works right now.":"مسح المهام وماسح الأكل وإقويري في الطريق. كل شيء آخر يعمل الآن.","Made by":"صنعه","About":"حول التطبيق","All rights reserved.":"جميع الحقوق محفوظة."},
+es:{"Today":"Hoy","Week":"Semana","Scan task":"Escanear","Health":"Salud","Plan":"Plan","Tomorrow":"Mañana","Next 7 days":"Próximos 7 días","Your week":"Tu semana","New task":"Nueva tarea","Scan a task":"Escanea una tarea","Fuel & recovery":"Energía y recuperación","Your AI coach":"Tu coach con IA","Make it yours":"Hazlo tuyo","Settings":"Ajustes",
+"Know exactly what to do, every minute.":"Sabe exactamente qué hacer, cada minuto.","Your day as a timeline. The red line is right now.":"Tu día como una línea de tiempo. La línea roja es ahora.","Tick a block when it's done and watch the ring fill.":"Marca cada bloque al terminarlo y mira cómo se llena el anillo.","Miss one? It comes back with a reminder so nothing slips.":"¿Se te pasó uno? Vuelve con un recordatorio para que nada se escape.",
+"Your whole week on one screen.":"Toda tu semana en una pantalla.","Deadlines coming up, with a countdown.":"Próximas entregas, con cuenta atrás.","See which days are on track.":"Mira qué días van bien.","Tap a day to jump into it.":"Toca un día para abrirlo.",
+"Snap it. Sorted.":"Foto. Listo.","Photograph any task sheet, rubric or teacher post.":"Fotografía cualquier hoja de tarea, rúbrica o aviso del profe.","It finds the due date and splits the work into small steps.":"Encuentra la fecha de entrega y divide el trabajo en pasos pequeños.","Tap add, and the steps land in your calendar.":"Toca añadir y los pasos aparecen en tu calendario.",
+"Fuel like an athlete.":"Aliméntate como un atleta.","Snap your plate for a quick calorie and protein estimate.":"Fotografía tu plato para estimar calorías y proteína.","Tap glasses to track water.":"Toca los vasos para registrar el agua.","Get an eating plan built around your own day.":"Consigue un plan de comidas hecho para tu día.",
+"An AI coach that knows your whole life.":"Un coach con IA que conoce toda tu vida.","It sees your plan, deadlines, food and training.":"Ve tu plan, entregas, comidas y entrenos.","Say \"I'm tired, move my stuff\" and it actually moves it.":"Dile «estoy cansado, mueve mis tareas» y de verdad las mueve.","Ask it to quiz you, calm you down or plan your evening.":"Pídele que te haga preguntas, te calme o planee tu tarde.",
+"Got it":"Entendido","Done it":"Hecho","Move to tonight":"Pasar a esta noche","Move to tomorrow":"Pasar a mañana","Right now":"Ahora","Up next":"Lo siguiente","Next in":"Siguiente en","Starts in":"Empieza en",
+"Study":"Estudio","Homework":"Deberes","Deadline":"Entrega","Training":"Entreno","Swim":"Natación","Break":"Descanso","Prayer":"Oración","Routine":"Rutina","School":"Clases","Other":"Otro",
+"Wake up, brush teeth, breakfast":"Despertar, cepillarse los dientes, desayunar","Training session":"Sesión de entreno","Brush teeth, phone away, get ready for bed":"Dientes, móvil fuera, prepárate para dormir",
+"What":"Qué","Time":"Hora","Type":"Tipo","Cancel":"Cancelar","Add":"Añadir","+ Add a task":"+ Añadir tarea","📸 Scan":"📸 Escanear","e.g. Read chapter 3 for English":"p. ej. Leer el capítulo 3 de inglés","Add to today":"Añadir a hoy",
+"Anytime":"Cuando quieras","Schedule":"Horario","Missed":"Pendiente","Remove":"Quitar","Nothing to study yet":"Aún no hay nada que estudiar","Scan a task sheet or tell Eggwairi what's coming up, and your week fills itself in.":"Escanea una hoja de tarea o cuéntale a Eggwairi lo que viene, y tu semana se llena sola.","Scan my first task":"Escanear mi primera tarea",
+"Added":"Añadido","Moved to tonight":"Movido a esta noche","Moved to tomorrow":"Movido a mañana","Nice, ticked off ✓":"Genial, hecho ✓","Day complete! 🎉":"¡Día completado! 🎉","Type what the task is first.":"Primero escribe la tarea.","Added to your plan":"Añadido a tu plan","Saved":"Guardado","Tips will show on each tab":"Los consejos volverán a aparecer","Fuel target set":"Objetivo de energía listo","⏰ A task just slipped. Check Today.":"⏰ Se te pasó una tarea. Mira Hoy.",
+"Deadlines":"Entregas","none":"ninguna","No deadlines yet. Scanned tasks and deadlines you add show up here with a countdown.":"Aún no hay entregas. Las tareas escaneadas y las entregas que añadas aparecen aquí con cuenta atrás.","Day by day":"Día a día","1 day":"1 día","No study tasks":"Sin tareas de estudio",
+"AI features need you to sign in":"Las funciones de IA requieren iniciar sesión","Connecting…":"Conectando…","Sign in on this page to use scanning and Eggwairi. The rest of ghulife works without it.":"Inicia sesión en esta página para usar el escáner y Eggwairi. El resto de ghulife funciona sin ello.","One moment.":"Un momento.",
+"AI isn't switched on for this page yet. You can allow it from the page's permissions.":"La IA aún no está activada en esta página. Puedes permitirla en los permisos de la página.","Photos can't be sent from here. Type it instead.":"No se pueden enviar fotos desde aquí. Escríbelo.","That photo didn't work. Try another one (JPG or PNG).":"Esa foto no funcionó. Prueba otra (JPG o PNG).","Too many requests right now. Wait a bit and try again.":"Demasiadas solicitudes. Espera un poco y vuelve a intentarlo.","Couldn't read that clearly. Try again, or add a short note.":"No se pudo leer bien. Inténtalo de nuevo o añade una nota.","Can't help with that one. Try something different.":"No puedo ayudar con eso. Prueba otra cosa.","Something went wrong. Check your connection and try again.":"Algo salió mal. Revisa tu conexión y vuelve a intentarlo.",
+"Snap a task sheet, rubric or teacher's post, or type what you got. It gets split into steps that fit around your day.":"Fotografía una hoja de tarea, rúbrica o aviso del profe, o escribe lo que tienes. Se divide en pasos que encajan en tu día.","Take photo or choose image":"Hacer foto o elegir imagen","Photos not available, type it below":"Fotos no disponibles, escríbelo abajo","Or type it: History essay, 800 words, due next Tuesday":"O escríbelo: ensayo de historia, 800 palabras, para el martes","Clear photo":"Quitar foto","Organizing…":"Organizando…","Organize it":"Organizar","Stop":"Parar","Add a photo or type the task first.":"Primero añade una foto o escribe la tarea.","Reading your task. This can take up to a minute.":"Leyendo tu tarea. Puede tardar hasta un minuto.","Couldn't find a task in that. Try a clearer photo or type it out.":"No encontré ninguna tarea. Prueba una foto más clara o escríbela.","Your task":"Tu tarea","Discard":"Descartar",
+"Your daily fuel":"Tu energía diaria","Edit":"Editar","kcal a day":"kcal al día","Tank full for today. Nice fueling 💪":"Depósito lleno por hoy. ¡Bien alimentado! 💪","A rough estimate for your age, size and activity. Aim to reach it; it's not a limit.":"Una estimación según tu edad, tamaño y actividad. Intenta llegar; no es un límite.","Add a few details to see roughly how much energy your body needs.":"Añade unos datos para ver cuánta energía necesita tu cuerpo.","Male":"Hombre","Female":"Mujer","Age":"Edad","Height cm":"Altura cm","Weight kg":"Peso kg",
+"Light (little or no training)":"Ligero (poco o nada de entreno)","Active (train 3-4 days a week)":"Activo (entreno 3-4 días a la semana)","Very active (train 5+ days a week)":"Muy activo (entreno 5+ días a la semana)","Work it out":"Calcular","Check your numbers: age, height in cm, weight in kg.":"Revisa los datos: edad, altura en cm, peso en kg.",
+"Energy":"Energía","kcal eaten":"kcal comidas","Protein":"Proteína","for muscles":"para músculos","Meals":"Comidas","logged":"registradas","Water":"Agua","Tap a glass to log it. Drink more on training days and in hot weather.":"Toca un vaso para registrarlo. Bebe más los días de entreno y con calor.","Scan your food":"Escanea tu comida","rough estimate":"estimación","Snap your plate":"Fotografía tu plato","Or type it: 2 eggs, toast, orange juice":"O escríbelo: 2 huevos, tostada, zumo de naranja","Estimating…":"Calculando…","Estimate it":"Estimar","Looking at your food…":"Mirando tu comida…","Snap your plate or type what you ate.":"Fotografía tu plato o escribe lo que comiste.","Couldn't spot any food. Try a clearer photo or type it.":"No vi comida. Prueba una foto más clara o escríbelo.",
+"Breakfast":"Desayuno","Lunch":"Almuerzo","Snack":"Merienda","Dinner":"Cena","Today's log":"Registro de hoy","nothing yet":"nada aún","Scan or type your first meal above.":"Escanea o escribe tu primera comida arriba.","My eating plan":"Mi plan de comidas","A simple day of meals that fits around your own schedule.":"Un día sencillo de comidas que encaja con tu horario.","A simple day of meals that fits around your own schedule, all halal.":"Un día sencillo de comidas que encaja con tu horario, todo halal.","Build strength":"Ganar fuerza","More energy to study":"Más energía para estudiar","Eat healthier":"Comer más sano","Building your plan…":"Creando tu plan…","Make a new plan":"Crear un plan nuevo","Make my plan":"Crear mi plan","Takes about 30 seconds…":"Tarda unos 30 segundos…","Couldn't build a plan. Try again.":"No se pudo crear el plan. Inténtalo de nuevo.",
+"Calorie numbers are estimates and photos can be off by a lot. This is about fueling well, not cutting. For a personal plan, talk to a parent or doctor.":"Las calorías son estimaciones y las fotos pueden fallar mucho. Se trata de alimentarte bien, no de recortar. Para un plan personal, habla con tus padres o un médico.",
+"Plan my evening":"Planea mi tarde","I'm stressed, help":"Estoy estresado, ayuda","Move my tasks, I'm tired":"Mueve mis tareas, estoy cansado","What should I eat before training?":"¿Qué como antes de entrenar?","Quiz me on something":"Hazme preguntas","Message Eggwairi…":"Escribe a Eggwairi…","Clear chat":"Borrar chat",
+"You":"Tú","Name":"Nombre","Your name":"Tu nombre","Your day":"Tu día","School / work days":"Días de clase / trabajo","Starts":"Empieza","Ends":"Termina","Wake up":"Despertar","Bedtime":"Dormir","Training days (optional)":"Días de entreno (opcional)","Training time":"Hora de entreno","Prayer times":"Horarios de oración","🕌 Yes, add the 5 daily prayers":"🕌 Sí, añade las 5 oraciones","Times calculated for your city, every day":"Horarios calculados para tu ciudad, cada día","No thanks":"No, gracias","You can turn this on later in Settings":"Puedes activarlo luego en Ajustes","Your city":"Tu ciudad","Body":"Cuerpo","Used for your daily fuel estimate.":"Se usa para estimar tu energía diaria.","Save changes":"Guardar cambios","More":"Más","Replay intro":"Repetir la intro","Show tab tips again":"Mostrar consejos otra vez","Reset ghulife":"Restablecer ghulife","This deletes all your tasks, food logs and settings. Are you sure?":"Esto borra todas tus tareas, comidas y ajustes. ¿Seguro?","Keep my data":"Conservar mis datos","Delete everything":"Borrar todo","Look":"Apariencia","Auto":"Auto","Light":"Claro","Dark":"Oscuro","Language":"Idioma","Theme follows your phone":"El tema sigue a tu móvil","Dark mode on":"Modo oscuro activado","Light mode on":"Modo claro activado",
+"Welcome to ghulife":"Bienvenido a ghulife","Your life,":"Tu vida,","finally organized.":"por fin organizada.","School, deadlines, training, food and sleep in one place, with an AI coach that has your back.":"Clases, entregas, entreno, comida y sueño en un solo lugar, con un coach con IA que te respalda.","Let's set it up":"Vamos a configurarlo","Takes about a minute.":"Tarda un minuto.","First, what should we call you?":"Primero, ¿cómo te llamamos?","Eggwairi, your coach, will greet you by name.":"Eggwairi, tu coach, te saludará por tu nombre.","Continue":"Continuar","What does your week look like?":"¿Cómo es tu semana?","This builds your calendar. You can change it any time.":"Con esto se crea tu calendario. Puedes cambiarlo cuando quieras.","Want prayer times in your day?":"¿Quieres los horarios de oración en tu día?","For Muslims. Each prayer gets its own block at the right time for your city.":"Para musulmanes. Cada oración aparece a la hora correcta para tu ciudad.","Your body, your fuel":"Tu cuerpo, tu energía","Optional. Used to estimate how much energy you need each day.":"Opcional. Sirve para estimar cuánta energía necesitas al día.","Skip":"Omitir","Check your numbers: age, height in cm, weight in kg. Or tap Skip.":"Revisa los datos: edad, altura en cm, peso en kg. O toca Omitir.","Four tabs.":"Cuatro pestañas.","Zero stress.":"Cero estrés.","I'm in":"¡Vamos!","Start by scanning your first task sheet, or just open your day and see your new calendar.":"Empieza escaneando tu primera hoja de tarea, o abre tu día y mira tu nuevo calendario.","Open my day":"Abrir mi día","‹ Back":"‹ Atrás","AI features are coming soon":"Las funciones de IA llegarán pronto","Task scanning, the food scanner and Eggwairi are on their way. Everything else works right now.":"El escáner de tareas, el de comida y Eggwairi están en camino. Todo lo demás ya funciona.","Made by":"Creado por","About":"Acerca de","All rights reserved.":"Todos los derechos reservados."}
+};
+const PRAY={ar:{Fajr:"الفجر",Dhuhr:"الظهر",Asr:"العصر",Maghrib:"المغرب",Isha:"العشاء"},es:{Fajr:"Fajr",Dhuhr:"Dhuhr",Asr:"Asr",Maghrib:"Maghrib",Isha:"Isha"}};
+function tx(s){const d=DICT[L()];return d&&d[s]!=null?d[s]:s}
+const PATTERNS=[
+ [/^(Good morning|Good afternoon|Good evening)(, (.+))?$/,(m,l)=>({ar:{"Good morning":"صباح الخير","Good afternoon":"مساء الخير","Good evening":"مساء الخير"},es:{"Good morning":"Buenos días","Good afternoon":"Buenas tardes","Good evening":"Buenas noches"}})[l][m[1]]+(m[3]?(l==="ar"?"، ":", ")+m[3]:"")],
+ [/^New here\? Meet (.+)$/,(m,l)=>(l==="ar"?"جديد هنا؟ تعرّف على ":"¿Nuevo? Conoce ")+tx(m[1])],
+ [/^⏰ (\d+) unfinished tasks?$/,(m,l)=>l==="ar"?`⏰ ${m[1]} مهام غير منجزة`:`⏰ ${m[1]} tareas pendientes`],
+ [/^⏰ 1 task slipped$/,(m,l)=>l==="ar"?"⏰ فاتتك مهمة":"⏰ Se te pasó 1 tarea"],
+ [/^\+(\d+) more marked below\.$/,(m,l)=>l==="ar"?`+${m[1]} أخرى بالأسفل.`:`+${m[1]} más abajo.`],
+ [/^(\d+) min$/,(m,l)=>l==="ar"?`${m[1]} دقيقة`:`${m[1]} min`],
+ [/^(\d+)h (\d+)m$/,(m,l)=>l==="ar"?`${m[1]} س ${m[2]} د`:`${m[1]} h ${m[2]} min`],
+ [/^(\d+) blocks$/,(m,l)=>l==="ar"?`${m[1]} فقرة`:`${m[1]} bloques`],
+ [/^(\d+) days$/,(m,l)=>l==="ar"?`${m[1]} أيام`:`${m[1]} días`],
+ [/^(\d+)\/(\d+) done$/,(m,l)=>l==="ar"?`${m[1]}/${m[2]} منجزة`:`${m[1]}/${m[2]} hechas`],
+ [/^(No study tasks|(\d+) study tasks?)( · School day)?$/,(m,l)=>(m[2]?(l==="ar"?`${m[2]} مهام مذاكرة`:`${m[2]} tareas de estudio`):tx("No study tasks"))+(m[3]?(l==="ar"?" · يوم دراسي":" · Día de clase"):"")],
+ [/^(Fajr|Dhuhr|Asr|Maghrib|Isha) prayer( \(at school\))?$/,(m,l)=>(l==="ar"?"صلاة "+PRAY.ar[m[1]]:"Oración de "+m[1])+(m[2]?(l==="ar"?" (في المدرسة)":" (en clase)"):"")],
+ [/^⚑ Due: (.*)$/,(m,l)=>(l==="ar"?"⚑ التسليم: ":"⚑ Entrega: ")+m[1]],
+ [/^Add to (.+)$/,(m,l)=>(l==="ar"?"أضف إلى ":"Añadir a ")+tx(m[1])],
+ [/^Add (\d+) steps( \+ deadline)?$/,(m,l)=>l==="ar"?`أضف ${m[1]} خطوات${m[2]?" + الموعد":""}`:`Añadir ${m[1]} pasos${m[2]?" + entrega":""}`],
+ [/^About ([\d,.]+) kcal to go today\.$/,(m,l)=>l==="ar"?`باقي حوالي ${m[1]} سعرة اليوم.`:`Te faltan unas ${m[1]} kcal hoy.`],
+ [/^(\d+) of 8 glasses$/,(m,l)=>l==="ar"?`${m[1]} من ٨ أكواب`:`${m[1]} de 8 vasos`],
+ [/^~([\d,.]+) kcal · (\d+)g protein$/,(m,l)=>l==="ar"?`~${m[1]} سعرة · ${m[2]} جم بروتين`:`~${m[1]} kcal · ${m[2]} g proteína`],
+ [/^Log as (Breakfast|Lunch|Snack|Dinner)$/,(m,l)=>(l==="ar"?"سجّل كـ":"Registrar como ")+tx(m[1])],
+ [/^(Breakfast|Lunch|Snack|Dinner) logged$/,(m,l)=>tx(m[1])+(l==="ar"?" سُجّل":" registrado")],
+ [/^(Breakfast|Lunch|Snack|Dinner): (.*)$/,(m)=>tx(m[1])+": "+m[2]],
+ [/^(\d+)g protein( · (.*))?$/,(m,l)=>(l==="ar"?`${m[1]} جم بروتين`:`${m[1]} g proteína`)+(m[2]||"")],
+ [/^([\d,.]+) kcal$/,(m,l)=>l==="ar"?`${m[1]} سعرة`:`${m[1]} kcal`],
+ [/^made (.+)$/,(m,l)=>(l==="ar"?"أُنشئت ":"creado ")+m[1]],
+ [/^Today in (.+?): (.*)\. Always check with your local mosque\.$/,(m,l)=>{let t=m[2];for(const k in PRAY[l])t=t.split(k).join(PRAY[l][k]);return l==="ar"?`اليوم في ${m[1]}: ${t}. تأكد دائمًا مع مسجدك المحلي.`:`Hoy en ${m[1]}: ${t}. Confírmalo siempre con tu mezquita.`}],
+ [/^Hey(?: (.+))?! I'm Eggwairi, your coach\. I know your plan, your deadlines and what you've eaten today\. Ask me anything, or tell me how you're feeling and I'll adjust your day\.$/,(m,l)=>l==="ar"?`أهلًا${m[1]?" "+m[1]:""}! أنا إقويري، مدربك. أعرف خطتك ومواعيدك وما أكلته اليوم. اسألني أي شيء، أو أخبرني كيف تشعر وسأعدّل يومك.`:`¡Hola${m[1]?" "+m[1]:""}! Soy Eggwairi, tu coach. Conozco tu plan, tus entregas y lo que has comido hoy. Pregúntame lo que quieras o dime cómo te sientes y ajusto tu día.`],
+ [/^You're all set(, (.+))?!$/,(m,l)=>l==="ar"?`كل شيء جاهز${m[2]?" يا "+m[2]:""}!`:`¡Todo listo${m[2]?", "+m[2]:""}!`],
+ [/^Welcome(, (.+))?! 👋$/,(m,l)=>l==="ar"?`أهلًا${m[2]?" "+m[2]:""}! 👋`:`¡Bienvenido${m[2]?", "+m[2]:""}! 👋`],
+ [/^⏰ (\d+) unfinished tasks?\. Catch up (on Today|below)\.$/,(m,l)=>l==="ar"?`⏰ لديك ${m[1]} مهام غير منجزة.`:`⏰ Tienes ${m[1]} tareas pendientes.`]
+];
+function tr(s){const l=L();if(l==="en"||s==null)return s;const core=String(s).trim();if(!core)return s;
+  let out=DICT[l][core];
+  if(out==null)for(const [re,fn] of PATTERNS){const m=core.match(re);if(m){out=fn(m,l);break}}
+  if(out==null)return s;const i=String(s).indexOf(core);return String(s).slice(0,i)+out+String(s).slice(i+core.length)}
+function translateDOM(root){
+  document.documentElement.lang=L();document.documentElement.dir=L()==="ar"?"rtl":"ltr";
+  if(L()==="en"||!root)return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{const p=n.parentElement;if(!p||p.closest("script,style,textarea,.bub,[data-notr]"))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});
+  const nodes=[];while(w.nextNode())nodes.push(w.currentNode);
+  nodes.forEach(n=>{const v=tr(n.nodeValue);if(v!==n.nodeValue)n.nodeValue=v});
+  root.querySelectorAll("[placeholder],[aria-label]").forEach(el=>{["placeholder","aria-label"].forEach(a=>{const v=el.getAttribute(a);if(v){const t=tr(v);if(t!==v)el.setAttribute(a,t)}})});
+  root.querySelectorAll(".bub.ai").forEach(b=>{if(b.childNodes.length===1&&b.firstChild.nodeType===3){const v=tr(b.firstChild.nodeValue);if(v!==b.firstChild.nodeValue)b.firstChild.nodeValue=v}});
+}
+function langFields(){return `<div class="seg" role="group" aria-label="Language" data-notr>${Object.entries(LANGS).map(([k,v])=>`<button data-lang="${k}" class="${L()===k?"on":""}">${v[0]}</button>`).join("")}</div>`}
+
+/* ---------- Light / dark mode ---------- */
+const ICO={light:'<circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  dark:'<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>',system:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>'};
+function applyTheme(){const r=document.documentElement;if(S.theme==="light"||S.theme==="dark")r.dataset.theme=S.theme;else delete r.dataset.theme;
+  const i=document.getElementById("themeico");if(i)i.innerHTML=ICO[S.theme]||ICO.system}
+function setTheme(t){S.theme=t;applyTheme();persist();toast(t==="system"?"Theme follows your phone":t==="dark"?"Dark mode on":"Light mode on")}
+function themeFields(){return `<div class="seg" role="group" aria-label="Theme">${[["system","Auto"],["light","Light"],["dark","Dark"]].map(([k,n])=>`<button data-theme-set="${k}" class="${(S.theme||"system")===k?"on":""}">${n}</button>`).join("")}</div>`}
+
+/* ---------- Header ---------- */
+function renderStrip(){
+  const s=document.getElementById("strip");
+  s.innerHTML=DAYS().map(d=>{const x=parseD(d),st=dayStats(d),hasDue=S.tasks.some(t=>t.d===d&&t.kind==="due");
+    return `<button class="pill${d===sel?" sel":""}${d===todayStr?" isToday":""}" data-d="${d}" aria-label="${dLabel(d)}">${hasDue?'<span class="dot"></span>':""}<small>${wdn(x.getDay())}</small><b>${x.getDate()}</b><i><u style="width:${st.n?st.c/st.n*100:0}%"></u></i></button>`}).join("");
+  const el=s.querySelector(".sel");if(el&&tab==="day")el.scrollIntoView({inline:"center",block:"nearest"});
+}
+function renderHeader(){
+  const ring=document.getElementById("ring");let p=0,txt;
+  if(tab==="health"){const w=S.water[todayStr]||0;p=Math.min(100,w/8*100);ring.style.setProperty("--c","var(--teal)");txt=w+"/8";ring.title="Glasses of water today"}
+  else{let c=0,n=0;(tab==="day"?[sel]:DAYS().slice(1,8)).forEach(d=>{const st=dayStats(d);c+=st.c;n+=st.n});p=n?Math.round(c/n*100):0;txt=p+"%";ring.style.setProperty("--c","var(--done)");ring.title="Tasks done"}
+  ring.style.setProperty("--p",p);document.getElementById("ringtxt").textContent=txt;
+  const hr=now.getHours(),greet=(hr<12?"Good morning":hr<17?"Good afternoon":"Good evening")+(S.name?", "+S.name:"");
+  const H={day:[sel===todayStr?greet:sel===addD(todayStr,1)?"Tomorrow":"Plan",(()=>{const x=parseD(sel);return `${wdn(x.getDay())} ${x.getDate()} ${mon(x)}`})()],
+    week:["Next 7 days","Your week"],scan:["New task","Scan a task"],health:["Fuel & recovery","Health"],coach:["Your AI coach","Eggwairi"],settings:["Make it yours","Settings"]}[tab];
+  document.getElementById("hello").textContent=H[0];document.getElementById("htitle").textContent=H[1];
+  document.getElementById("strip").hidden=tab!=="day";
+  const m=missed().length,b=document.getElementById("nbadge");b.hidden=!m;b.textContent=m;
+  translateDOM(document.querySelector("header"));translateDOM(document.querySelector("nav"));
+}
+
+/* ---------- Tab intros ---------- */
+const TAB_INTRO={
+  day:{icon:"🗓️",name:"Today",c:"var(--accent)",hook:"Know exactly what to do, every minute.",
+    lines:["Your day as a timeline. The red line is right now.","Tick a block when it's done and watch the ring fill.","Miss one? It comes back with a reminder so nothing slips."]},
+  week:{icon:"📅",name:"Week",c:"var(--accent-2)",hook:"Your whole week on one screen.",
+    lines:["Deadlines coming up, with a countdown.","See which days are on track.","Tap a day to jump into it."]},
+  scan:{icon:"📸",name:"Scan task",c:"var(--accent)",hook:"Snap it. Sorted.",
+    lines:["Photograph any task sheet, rubric or teacher post.","It finds the due date and splits the work into small steps.","Tap add, and the steps land in your calendar."]},
+  health:{icon:"💪",name:"Health",c:"var(--teal)",hook:"Fuel like an athlete.",
+    lines:["Snap your plate for a quick calorie and protein estimate.","Tap glasses to track water.","Get an eating plan built around your own day."]},
+  coach:{icon:"✨",name:"Eggwairi",c:"var(--accent-2)",hook:"An AI coach that knows your whole life.",
+    lines:["It sees your plan, deadlines, food and training.","Say \"I'm tired, move my stuff\" and it actually moves it.","Ask it to quiz you, calm you down or plan your evening."]}
+};
+function tabIntro(){
+  if(!S.onboarded||S.seenTabs[tab])return"";const t=TAB_INTRO[tab];if(!t)return"";
+  return `<div class="tip" style="--tc:${t.c}"><div class="tiphead"><span class="tipicon">${t.icon}</span><div><small>New here? Meet ${t.name}</small><b>${t.hook}</b></div></div>
+    <ul>${t.lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ul><button class="tipbtn" data-seen="${tab}">Got it</button></div>`;
+}
+
+/* ---------- Today ---------- */
+let adding=false,addDraft={text:"",time:"",kind:"sum"};
+function renderDay(){
+  const items=dayItems(sel),isToday=sel===todayStr;let cur=-1,next=-1;
+  if(isToday){const nm=nowMin();items.forEach((t,i)=>{if(t.s==null)return;if(t.s<=nm&&(t.e??t.s+30)>nm)cur=i;else if(t.s>nm&&next<0)next=i})}
+  let h="";
+  if(isToday){
+    const miss=missed();
+    if(miss.length){
+      h+=`<div class="nudge"><h3>⏰ ${miss.length===1?"1 task slipped":miss.length+" unfinished tasks"}</h3>`+
+      miss.slice(0,3).map(x=>`<div class="nrow"><div class="meta"><span>${x.d===todayStr?esc(label(x)):dLabel(x.d)+" · "+esc(label(x))}</span></div><div class="body">${esc(x.text)}</div>
+        <div class="btns"><button class="chip ok" data-done="${x.id}">Done it</button><button class="chip" data-move="${x.id}" data-md="${x.d}">Move to ${nowMin()<20*60?"tonight":"tomorrow"}</button></div></div>`).join("")+
+      (miss.length>3?`<div class="msg">+${miss.length-3} more marked below.</div>`:"")+`</div>`;
+    }
+    if(cur>=0||next>=0){const c=cur>=0?items[cur]:null,nx=next>=0?items[next]:null,left=nx?nx.s-nowMin():0;
+      h+=`<div class="hero"><div class="lab">${c?"Right now":"Up next"}</div><div class="txt">${esc((c||nx).text)}</div>${c&&nx?`<div class="nx">Next in <span class="cd">${left>=60?Math.floor(left/60)+"h "+(left%60)+"m":left+" min"}</span>: ${esc(nx.text)}</div>`:!c&&nx?`<div class="nx">Starts in <span class="cd">${left>=60?Math.floor(left/60)+"h "+(left%60)+"m":left+" min"}</span></div>`:""}</div>`}
+  }
+  S.tasks.filter(t=>t.d===sel&&t.kind==="due").forEach(t=>h+=`<div class="due">⚑ Due: ${esc(t.text)}${t.s!=null?" · "+fmt(t.s):""}</div>`);
+  // add task
+  h+=adding?`<div class="card stack"><div class="sec" style="margin:0">Add to ${sel===todayStr?"today":dLabel(sel)}</div>
+      <label class="field">What<input id="ad-text" maxlength="120" placeholder="e.g. Read chapter 3 for English" value="${esc(addDraft.text)}"></label>
+      <div class="grid2"><label class="field">Time<input id="ad-time" type="time" value="${esc(addDraft.time)}"></label>
+      <label class="field">Type<select id="ad-kind">${[["sum","Study"],["hw","Homework"],["due","Deadline"],["gym","Training"],["routine","Other"]].map(([k,n])=>`<option value="${k}" ${addDraft.kind===k?"selected":""}>${n}</option>`).join("")}</select></label></div>
+      <div class="row2"><button class="ghost" id="ad-cancel">Cancel</button><button class="primary" id="ad-save">Add</button></div></div>`
+    :`<div class="addbar"><button class="ghost" id="ad-open" style="flex:1">+ Add a task</button><button class="ghost" data-tab="scan">📸 Scan</button></div>`;
+  const missIds=isToday?new Set(missed().map(m=>m.id)):new Set();
+  const block=(t,i)=>{const k=KIND[t.kind]?`<b class="k ${t.kind}">${KIND[t.kind]}</b>`:"";const ms=missIds.has(t.id);const dur=t.s!=null&&t.e!=null?Math.max(15,t.e-t.s):0;
+    const inner=`<span class="what"><span class="meta"><span>${esc(label(t))}</span>${k}${ms?`<b class="k miss">Missed</b>`:""}${t.custom?`<button class="rm" data-rm="${t.id}" aria-label="Remove task">Remove</button>`:""}</span><span class="body">${esc(t.text)}</span></span>`;
+    return checkable(t)?`<label class="ev ${t.kind}${i===cur?" cur":""}${ms?" miss":""}" for="${t.id}" style="${dur?`min-height:${Math.min(150,44+dur*0.6)}px`:""}"><input type="checkbox" id="${t.id}" ${S.saved[t.id]?"checked":""}>${inner}</label>`
+      :`<div class="ev ${t.kind}${i===cur?" cur":""}" style="grid-template-columns:1fr;${dur?`min-height:${Math.min(150,44+dur*0.3)}px`:""}">${inner}</div>`};
+  const any=items.filter(t=>t.s==null),timed=items.filter(t=>t.s!=null);
+  if(any.length)h+=`<div class="sec">Anytime<small>${any.length}</small></div><div class="any">${any.map(t=>block(t,items.indexOf(t))).join("")}</div>`;
+  let rows="",nowDone=!isToday;
+  timed.forEach(t=>{if(!nowDone&&t.s>nowMin()){rows+=`<div class="nowline"><span>${fmt(nowMin()).replace(" ","<br>")}</span><i></i></div>`;nowDone=true}
+    const f=fmt(t.s).split(" ");rows+=`<div class="slot"><div class="tm"><b>${f[0]}</b><small>${f[1]}</small></div>${block(t,items.indexOf(t))}</div>`});
+  if(!nowDone)rows+=`<div class="nowline"><span>${fmt(nowMin()).replace(" ","<br>")}</span><i></i></div>`;
+  h+=`<div class="sec">Schedule<small>${timed.length} blocks</small></div><div class="cal">${rows}</div>`;
+  if(!S.tasks.some(t=>t.d>=todayStr))h+=`<div class="card empty"><b>Nothing to study yet</b><p>Scan a task sheet or tell Eggwairi what's coming up, and your week fills itself in.</p><button class="primary" data-tab="scan" style="flex:none">Scan my first task</button></div>`;
+  return h;
+}
+function bindDay(){
+  on("ad-open",()=>{adding=true;addDraft={text:"",time:"",kind:"sum"};render();document.getElementById("ad-text")?.focus()});
+  on("ad-cancel",()=>{adding=false;render()});
+  const g=()=>{addDraft={text:document.getElementById("ad-text").value,time:document.getElementById("ad-time").value,kind:document.getElementById("ad-kind").value}};
+  ["ad-text","ad-time","ad-kind"].forEach(i=>document.getElementById(i)?.addEventListener("input",g));
+  on("ad-save",()=>{g();if(!addDraft.text.trim()){toast("Type what the task is first.");return}
+    const s=addDraft.time?hm(addDraft.time):null;
+    S.tasks.push({id:uid(),d:sel,s,e:s==null?null:addDraft.kind==="due"?s:s+45,text:addDraft.text.trim(),kind:addDraft.kind,src:"you"});
+    adding=false;persist();render();toast("Added")});
+}
+function moveTask(id,d){
+  const it=dayItems(d).find(x=>x.id===id);if(!it)return;
+  let target=todayStr,s=Math.max(nowMin()+30,20*60);
+  if(nowMin()>=20*60){target=addD(todayStr,1);s=null}
+  if(it.custom){const t=S.tasks.find(x=>x.id===id);t.d=target;t.s=s;t.e=s==null?null:s+45;t.src="moved"}
+  else{S.moved[id]=true;S.tasks.push({id:uid(),d:target,s,e:s==null?null:s+45,text:it.text,kind:it.kind,src:"moved"})}
+  persist();toast(target===todayStr?"Moved to tonight":"Moved to tomorrow");render();
+}
+
+/* ---------- Week ---------- */
+function renderWeek(){
+  const due=dueSoon();let h="";
+  h+=`<div class="sec" style="margin-top:0">Deadlines<small>${due.length||"none"}</small></div>`;
+  h+=due.length?`<div class="list">${due.slice(0,6).map(t=>{const days=Math.round((parseD(t.d)-parseD(todayStr))/864e5);
+      return `<div class="t" style="cursor:default;grid-template-columns:54px 1fr"><span class="num" style="width:auto;height:auto;border-radius:12px;padding:6px 4px;background:${days<=1?"var(--due-soft)":"var(--accent-soft)"};color:${days<=1?"var(--due)":"var(--accent)"}">${days===0?"Today":days===1?"1 day":days+" days"}</span><span class="what"><span class="meta">${dLabel(t.d)}${t.s!=null?" · "+fmt(t.s):""}</span><span class="body">${esc(t.text)}</span></span></div>`}).join("")}</div>`
+    :`<div class="card"><p class="lead">No deadlines yet. Scanned tasks and deadlines you add show up here with a countdown.</p></div>`;
+  h+=`<div class="sec">Day by day</div>`;
+  h+=DAYS().slice(1,8).map(d=>{const s=dayStats(d),n=S.tasks.filter(t=>t.d===d&&t.kind!=="due").length,du=S.tasks.filter(t=>t.d===d&&t.kind==="due");
+    return `<button class="wk" data-go="${d}"><div class="row"><b>${dLabel(d)}</b><span class="c">${s.c}/${s.n} done</span></div>${du.map(x=>`<div class="d">⚑ ${esc(x.text)}</div>`).join("")}<div class="c">${n?n+" study task"+(n>1?"s":""):"No study tasks"}${S.schoolDays.includes(parseD(d).getDay())?" · School day":""}</div><div class="bar"><i style="width:${s.n?s.c/s.n*100:0}%"></i></div></button>`}).join("");
+  return h;
+}
+
+/* ---------- AI access ---------- */
+let AI=null,AIimg=false,AItools=false,aiReady=false;
+(async()=>{const s=window.__ai?.use?await window.__ai.use("sample"):null;aiReady=true;AI=s;
+  if(s){const lim=await s.limits().catch(()=>null);AIimg=!!lim?.images;AItools=!!lim?.tools}if(["scan","health","coach"].includes(tab))render()})();
+function errMsg(e){const c=e&&e.code;
+  if(c==="cancelled")return"";
+  if(c==="not_granted"||c==="sampling_disabled"){AI=null;return"AI isn't switched on for this page yet. You can allow it from the page's permissions."}
+  if(c==="images_unavailable"){AIimg=false;return"Photos can't be sent from here. Type it instead."}
+  if(c==="image_rejected")return"That photo didn't work. Try another one (JPG or PNG).";
+  if(c==="rate_limited")return"Too many requests right now. Wait a bit and try again.";
+  if(c==="invalid_json"||c==="empty_completion")return"Couldn't read that clearly. Try again, or add a short note.";
+  if(c==="refused")return"Can't help with that one. Try something different.";
+  return"Something went wrong. Check your connection and try again.";}
+const noAI=()=>!window.__ai?`<div class="card stack"><b>AI features are coming soon</b><p class="fine" style="margin:0">Task scanning, the food scanner and Eggwairi are on their way. Everything else works right now.</p></div>`:`<div class="card"><b>${aiReady?"AI features need you to sign in":"Connecting…"}</b><p class="fine">${aiReady?"Sign in on this page to use scanning and Eggwairi. The rest of ghulife works without it.":"One moment."}</p></div>`;
+function aboutMe(){
+  const p=S.profile;
+  return langLine()+` About the user: ${S.name?"name "+S.name+", ":""}${p?`${p.age} years old, ${p.sex==="f"?"girl/woman":"boy/man"}, `:""}school or work days ${S.schoolDays.map(i=>WD[i]).join(", ")||"none"} from ${fmt(hm(S.schoolStart))} to ${fmt(hm(S.schoolEnd))}, wakes ${fmt(hm(S.wake))}, bed ${fmt(hm(S.bed))}${S.trainDays.length?`, trains ${S.trainDays.map(i=>WD[i]).join(", ")} at ${fmt(hm(S.trainTime))}`:""}.${S.muslim?` Muslim: prays five times a day (city ${S.city}; today's times ${(()=>{const t=prayerTimes(todayStr,S.city);return["fajr","dhuhr","asr","maghrib","isha"].map(k=>k+" "+fmt(t[k])).join(", ")})()}); avoid scheduling over prayers; food must be halal.`:""}`;
+}
+function planSummary(){return DAYS().slice(1,9).map(d=>`${d} (${WD[parseD(d).getDay()]})\n`+dayItems(d).map(t=>`  - ${t.id} | ${label(t)} | ${t.text}${S.saved[t.id]?" (done)":""}`).join("\n")).join("\n")}
+
+/* ---------- Scan task ---------- */
+let scanFile=null,scanResult=null,scanBusy=false,scanMsg="",ctl=null,noteDraft="";
+function renderScan(){
+  if(!AI)return noAI();
+  let h=`<div class="card stack">
+    <p class="lead">Snap a task sheet, rubric or teacher's post, or type what you got. It gets split into steps that fit around your day.</p>
+    <label class="shot${AIimg?"":" off"}" for="scan-photo">${scanFile?`<img id="scan-prev" alt="Your photo">`:`<svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="4"/></svg><span>${AIimg?"Take photo or choose image":"Photos not available, type it below"}</span>`}</label>
+    <input type="file" id="scan-photo" accept="image/*" capture="environment" hidden ${AIimg?"":"disabled"}>
+    <textarea id="scan-note" rows="3" placeholder="Or type it: History essay, 800 words, due next Tuesday"></textarea>
+    <div class="row2">${scanFile?`<button class="ghost" id="scan-clear">Clear photo</button>`:""}<button class="primary" id="scan-go" ${scanBusy?"disabled":""}>${scanBusy?"Organizing…":"Organize it"}</button>${scanBusy?`<button class="ghost" id="scan-stop">Stop</button>`:""}</div>
+    ${scanMsg?`<p class="msg">${esc(scanMsg)}</p>`:""}</div>`;
+  if(scanResult){
+    h+=`<div class="sec">${esc(scanResult.title||"Your task")}</div>`;
+    if(scanResult.dueDate)h+=`<div class="due">⚑ Due: ${dLabel(scanResult.dueDate)}${scanResult.dueTime?" · "+esc(scanResult.dueTime):""}</div>`;
+    if(scanResult.summary)h+=`<div class="card"><p style="margin:0">${esc(scanResult.summary)}</p></div>`;
+    h+=`<div class="list">`+scanResult.steps.map((s,i)=>`<div class="t" style="cursor:default"><span class="num">${i+1}</span><span class="what"><span class="meta">${dLabel(s.date)} · ${s.start!=null?range(s.start,s.end):"Anytime"}</span><span class="body">${esc(s.text)}</span></span></div>`).join("")+`</div>
+      <div class="row2"><button class="ghost" id="scan-discard">Discard</button><button class="primary" id="scan-add">Add ${scanResult.steps.length} steps${scanResult.dueDate?" + deadline":""}</button></div>`;
+  }
+  return h;
+}
+async function runScan(){
+  const note=noteDraft.trim();if(!scanFile&&!note){scanMsg="Add a photo or type the task first.";render();return}
+  scanBusy=true;scanMsg="Reading your task. This can take up to a minute.";render();ctl=new AbortController();
+  const last=addD(todayStr,12);
+  const prompt=`You help a student fit a school task into their planner.
+Today is ${todayStr} (${WD[now.getDay()]}), time ${fmt(nowMin())}. Plan dates from ${todayStr} to ${last}.
+${aboutMe()}
+${scanFile?"The attached photo shows the task (a task sheet, rubric, or a teacher's post). Read it carefully, including any due date.":""}
+${note?"The user's note: "+note:""}
+Their plan (id | time | item):
+${planSummary()}
+Split the task into 2 to 6 concrete steps of 20 to 60 minutes, scheduled before the due date, never in the past, in free time (not during school, prayers, training or existing blocks). Steps help them do the work themselves.
+Reply with only JSON: {"title":"short name","dueDate":"YYYY-MM-DD or empty","dueTime":"e.g. 11:59 PM or empty","summary":"one or two sentences on what the task asks","steps":[{"date":"YYYY-MM-DD","start":"16:00","end":"16:45","text":"what to do"}]}`;
+  try{const r=await AI.json(prompt,{images:scanFile?[scanFile]:undefined,signal:ctl.signal,cache:false});
+    const clampD=d=>{d=String(d||"");if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||d<todayStr)return todayStr;return d>last?last:d};
+    const steps=Array.isArray(r?.steps)?r.steps.filter(s=>s&&s.text).map(s=>{const st=/^\d{1,2}:\d{2}$/.test(s.start||"")?hm(s.start):null,en=/^\d{1,2}:\d{2}$/.test(s.end||"")?hm(s.end):st==null?null:st+45;return{date:clampD(s.date),start:st,end:en,text:String(s.text)}}):[];
+    if(!steps.length){scanMsg="Couldn't find a task in that. Try a clearer photo or type it out.";scanResult=null}
+    else{const dd=/^\d{4}-\d{2}-\d{2}$/.test(r.dueDate||"")?String(r.dueDate):"";scanResult={title:String(r.title||""),dueDate:dd,dueTime:String(r.dueTime||""),summary:String(r.summary||""),steps};scanMsg=""}
+  }catch(e){scanMsg=errMsg(e)}
+  scanBusy=false;ctl=null;render();
+}
+function bindScan(){
+  const n=document.getElementById("scan-note");if(n){n.value=noteDraft;n.addEventListener("input",()=>noteDraft=n.value)}
+  const ph=document.getElementById("scan-photo");if(ph)ph.addEventListener("change",()=>{const f=ph.files&&ph.files[0];if(f){scanFile=f;scanMsg="";render()}});
+  const prev=document.getElementById("scan-prev");if(prev&&scanFile)prev.src=URL.createObjectURL(scanFile);
+  on("scan-go",runScan);on("scan-stop",()=>ctl&&ctl.abort());on("scan-clear",()=>{scanFile=null;render()});on("scan-discard",()=>{scanResult=null;render()});
+  on("scan-add",()=>{const r=scanResult,tag=r.title?r.title+": ":"";
+    r.steps.forEach(s=>S.tasks.push({id:uid(),d:s.date,s:s.start,e:s.end,text:tag+s.text,kind:"sum",src:"scan"}));
+    if(r.dueDate){const m=r.dueTime.match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);let s=null;if(m){let h=+m[1]%12;if(/pm/i.test(m[3]||""))h+=12;s=h*60+ +m[2]}
+      S.tasks.push({id:uid(),d:r.dueDate,s,e:s,text:r.title||"Task due",kind:"due",src:"scan"})}
+    persist();sel=r.steps[0].date;scanResult=null;scanFile=null;noteDraft="";tab="day";render();window.scrollTo(0,0);toast("Added to your plan")});
+}
+
+/* ---------- Health ---------- */
+let foodFile=null,foodResult=null,foodBusy=false,foodMsg="",foodNote="",fctl=null,goal="Build strength",planBusy=false,planMsg="",editProfile=false,profMsg="";
+function foodToday(){return S.food[todayStr]||[]}
+function mealName(){const m=nowMin();return m<10*60+30?"Breakfast":m<15*60?"Lunch":m<18*60?"Snack":"Dinner"}
+/* Estimated Energy Requirement, Institute of Medicine Dietary Reference Intakes (2005) */
+function fuelNeed(){const p=S.profile;if(!p)return null;const a=+p.act||0,ht=p.height/100,wt=p.weight,age=p.age,f=p.sex==="f";let e;
+  if(age<19){const PA=f?[1.16,1.31,1.56]:[1.13,1.26,1.42];e=f?135.3-30.8*age+PA[a]*(10*wt+934*ht)+25:88.5-61.9*age+PA[a]*(26.7*wt+903*ht)+25}
+  else{const PA=f?[1.14,1.27,1.45]:[1.11,1.25,1.48];e=f?354-6.91*age+PA[a]*(9.36*wt+726*ht):662-9.53*age+PA[a]*(15.91*wt+539.6*ht)}
+  const r=x=>Math.round(x/50)*50;return{lo:r(e*0.93),hi:r(e*1.07)}}
+function profileForm(p,pre){p=p||{sex:"m",age:"",height:"",weight:"",act:1};
+  return `<div class="seg" role="group" aria-label="Sex">${[["m","Male"],["f","Female"]].map(([k,n])=>`<button data-sex="${k}" class="${(p.sex||"m")===k?"on":""}">${n}</button>`).join("")}</div>
+  <div class="fuel"><label class="stat">Age<input id="${pre}age" type="number" inputmode="numeric" value="${p.age}" placeholder="15"></label>
+  <label class="stat">Height cm<input id="${pre}h" type="number" inputmode="numeric" value="${p.height}" placeholder="170"></label>
+  <label class="stat">Weight kg<input id="${pre}w" type="number" inputmode="numeric" value="${p.weight}" placeholder="60"></label></div>
+  <select id="${pre}act" aria-label="How active you are">${ACT.map((a,i)=>`<option value="${i}" ${+p.act===i?"selected":""}>${a[0]}</option>`).join("")}</select>`}
+let draftSex=null;
+function readProfile(pre){const g=i=>+document.getElementById(pre+i).value;const age=g("age"),height=g("h"),weight=g("w"),act=g("act");
+  if(!(age>=10&&age<=80)||!(height>=120&&height<=220)||!(weight>=25&&weight<=200))return null;
+  return{sex:draftSex||S.profile?.sex||"m",age,height,weight,act}}
+function renderHealth(){
+  const f=foodToday(),kc=f.reduce((a,x)=>a+(+x.kcal||0),0),pr=f.reduce((a,x)=>a+(+x.protein||0),0),w=S.water[todayStr]||0,need=fuelNeed();let h="";
+  if(need&&!editProfile){const pct=Math.min(100,Math.round(kc/need.lo*100));
+    h+=`<div class="card stack"><div class="sec" style="margin:0">Your daily fuel<small><button class="rm" id="prof-edit" style="margin:0">Edit</button></small></div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><b style="font-family:var(--display);font-size:1.6rem;font-variant-numeric:tabular-nums">${need.lo.toLocaleString("en")}–${need.hi.toLocaleString("en")}</b><span class="msg">kcal a day</span></div>
+      <div class="bar" style="height:10px"><i style="width:${pct}%;background:var(--teal)"></i></div>
+      <p class="msg">${kc>=need.lo?"Tank full for today. Nice fueling 💪":`About ${(need.lo-kc).toLocaleString("en")} kcal to go today.`}</p>
+      <p class="fine" style="margin:0">A rough estimate for your age, size and activity. Aim to reach it; it's not a limit.</p></div>`}
+  else h+=`<div class="card stack"><div class="sec" style="margin:0">Your daily fuel</div><p class="lead">Add a few details to see roughly how much energy your body needs.</p>${profileForm(S.profile,"pf-")}<button class="primary teal" id="prof-save">Work it out</button>${profMsg?`<p class="msg">${esc(profMsg)}</p>`:""}</div>`;
+  h+=`<div class="fuel"><div class="stat"><small>Energy</small><b>${kc}</b><span>kcal eaten</span></div><div class="stat"><small>Protein</small><b>${pr}<span style="font-size:.9rem">g</span></b><span>for muscles</span></div><div class="stat"><small>Meals</small><b>${f.length}</b><span>logged</span></div></div>
+  <div class="card"><div class="sec" style="margin:0 0 10px">Water<small>${w} of 8 glasses</small></div><div class="water">${Array.from({length:8},(_,i)=>`<button class="glass${i<w?" on":""}" data-w="${i+1}" aria-label="${i+1} glasses"></button>`).join("")}</div><p class="fine">Tap a glass to log it. Drink more on training days and in hot weather.</p></div>`;
+  h+=`<div class="sec">Scan your food<small>rough estimate</small></div>`;
+  if(!AI)h+=noAI();
+  else{h+=`<div class="card stack"><label class="shot teal${AIimg?"":" off"}" for="food-photo">${foodFile?`<img id="food-prev" alt="Your meal">`:`<svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><path d="M5 4v5M3 4v3a2 2 0 0 0 4 0V4M19 4c-1.5 1-2 3-2 5h2v11"/></svg><span>${AIimg?"Snap your plate":"Photos not available, type it below"}</span>`}</label>
+      <input type="file" id="food-photo" accept="image/*" capture="environment" hidden ${AIimg?"":"disabled"}>
+      <textarea id="food-note" rows="2" placeholder="Or type it: 2 eggs, toast, orange juice"></textarea>
+      <div class="row2">${foodFile?`<button class="ghost teal" id="food-clear">Clear photo</button>`:""}<button class="primary teal" id="food-go" ${foodBusy?"disabled":""}>${foodBusy?"Estimating…":"Estimate it"}</button></div>${foodMsg?`<p class="msg">${esc(foodMsg)}</p>`:""}</div>`;
+    if(foodResult)h+=`<div class="card"><div class="sec" style="margin:0 0 6px">${esc(foodResult.meal)}<small>~${foodResult.kcal} kcal · ${foodResult.protein}g protein</small></div>
+        ${foodResult.items.map(i=>`<div class="meal"><span class="n">${esc(i.name)}</span><span class="kc">${i.kcal}</span><span class="s">${esc(i.portion)}${i.protein?` · ${i.protein}g protein`:""}</span></div>`).join("")}
+        ${foodResult.tip?`<p class="fine">💡 ${esc(foodResult.tip)}</p>`:""}<div class="row2" style="margin-top:10px"><button class="ghost teal" id="food-discard">Discard</button><button class="primary teal" id="food-add">Log as ${mealName()}</button></div></div>`}
+  h+=`<div class="sec">Today's log<small>${f.length?kc+" kcal":"nothing yet"}</small></div><div class="card">${f.length?f.map(x=>`<div class="meal"><span class="n">${esc(x.meal)}: ${esc(x.name)}</span><span class="kc">${x.kcal}</span><span class="s">${x.protein}g protein · ${esc(x.time)}<button class="rm" data-rmfood="${x.id}">Remove</button></span></div>`).join(""):`<p class="lead">Scan or type your first meal above.</p>`}</div>`;
+  h+=`<div class="sec">My eating plan</div><div class="card stack"><p class="lead">A simple day of meals that fits around your own schedule${S.muslim?", all halal":""}.</p>
+      <div class="seg" role="group" aria-label="Your goal">${["Build strength","More energy to study","Eat healthier"].map(g=>`<button data-goal="${g}" class="${g===goal?"on":""}">${g}</button>`).join("")}</div>
+      <button class="primary teal" id="plan-go" ${planBusy||!AI?"disabled":""}>${planBusy?"Building your plan…":S.fuelPlan?"Make a new plan":"Make my plan"}</button>${planMsg?`<p class="msg">${esc(planMsg)}</p>`:""}</div>`;
+  if(S.fuelPlan){const p=S.fuelPlan;h+=`<div class="card planmd"><div class="sec" style="margin:0">${esc(p.goal)}<small>made ${esc(p.made)}</small></div><div>${p.meals.map(m=>`<div class="pm"><span class="tm">${esc(m.time)}</span><span class="fd"><b>${esc(m.name)}</b><small>${esc(m.food)}</small></span></div>`).join("")}</div>${p.tips.length?`<ul>${p.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}</div>`}
+  h+=`<p class="fine" style="text-align:center">Calorie numbers are estimates and photos can be off by a lot. This is about fueling well, not cutting. For a personal plan, talk to a parent or doctor.</p>`;
+  return h;
+}
+const SAFE=()=>langLine()+` The user ${S.profile&&S.profile.age<19?"is a teenager who is still growing":"may be a teenager"}. Never suggest eating less, skipping meals, calorie deficits, weight loss or "bad" foods. Keep it positive and practical.${S.muslim?" Food must be halal.":""} Use everyday foods common in ${S.city?S.city+" and the surrounding region":"their area"}.`;
+async function runFood(){
+  const note=foodNote.trim();if(!foodFile&&!note){foodMsg="Snap your plate or type what you ate.";render();return}
+  foodBusy=true;foodMsg="Looking at your food…";render();fctl=new AbortController();
+  const prompt=`${SAFE()}\nEstimate the food ${foodFile?"in the photo":"described"}. ${note?"Their note: "+note:""}\nGive realistic portion guesses. Reply with only JSON: {"items":[{"name":"food","portion":"about 1 cup","kcal":200,"protein":8}],"tip":"one short encouraging tip to make the meal even better (e.g. add protein or fruit)"}`;
+  try{const r=await AI.json(prompt,{images:foodFile?[foodFile]:undefined,signal:fctl.signal,cache:false});
+    const items=Array.isArray(r?.items)?r.items.filter(i=>i&&i.name).map(i=>({name:String(i.name),portion:String(i.portion||""),kcal:Math.max(0,Math.round(+i.kcal||0)),protein:Math.max(0,Math.round(+i.protein||0))})):[];
+    if(!items.length){foodMsg="Couldn't spot any food. Try a clearer photo or type it.";foodResult=null}
+    else{foodResult={meal:mealName(),items,kcal:items.reduce((a,i)=>a+i.kcal,0),protein:items.reduce((a,i)=>a+i.protein,0),tip:String(r.tip||"")};foodMsg=""}
+  }catch(e){foodMsg=errMsg(e)}foodBusy=false;fctl=null;render();
+}
+async function runPlan(){
+  planBusy=true;planMsg="Takes about 30 seconds…";render();const nd=fuelNeed();
+  const prompt=`${SAFE()}\nMake a simple one-day eating plan. Goal: ${goal}.${nd?` Estimated need about ${nd.lo}-${nd.hi} kcal a day; make sure the plan reaches at least that.`:""}\n${aboutMe()}\nInclude breakfast, a snack, lunch, a pre-training snack if they train, dinner, and water reminders, timed around their day. No calorie numbers.\nReply with only JSON: {"meals":[{"time":"7:00 AM","name":"Breakfast","food":"what to eat, one line"}],"tips":["2-3 short tips"]}`;
+  try{const r=await AI.json(prompt,{cache:false});const meals=Array.isArray(r?.meals)?r.meals.filter(m=>m&&m.food).map(m=>({time:String(m.time||""),name:String(m.name||""),food:String(m.food)})):[];
+    if(!meals.length)planMsg="Couldn't build a plan. Try again.";
+    else{S.fuelPlan={goal,made:now.getDate()+" "+mon(now),meals,tips:(Array.isArray(r.tips)?r.tips:[]).map(String).slice(0,3)};persist();planMsg=""}
+  }catch(e){planMsg=errMsg(e)}planBusy=false;render();
+}
+function bindHealth(){
+  const n=document.getElementById("food-note");if(n){n.value=foodNote;n.addEventListener("input",()=>foodNote=n.value)}
+  const ph=document.getElementById("food-photo");if(ph)ph.addEventListener("change",()=>{const f=ph.files&&ph.files[0];if(f){foodFile=f;foodMsg="";render()}});
+  const prev=document.getElementById("food-prev");if(prev&&foodFile)prev.src=URL.createObjectURL(foodFile);
+  on("food-go",runFood);on("food-clear",()=>{foodFile=null;render()});on("food-discard",()=>{foodResult=null;render()});
+  on("food-add",()=>{const r=foodResult;(S.food[todayStr]=S.food[todayStr]||[]).push({id:uid(),meal:r.meal,name:r.items.map(i=>i.name).join(", "),kcal:r.kcal,protein:r.protein,time:fmt(nowMin())});persist();foodResult=null;foodFile=null;foodNote="";render();toast(r.meal+" logged")});
+  on("plan-go",runPlan);on("prof-edit",()=>{editProfile=true;draftSex=S.profile?.sex||"m";render()});
+  on("prof-save",()=>{const p=readProfile("pf-");if(!p){profMsg="Check your numbers: age, height in cm, weight in kg.";render();return}S.profile=p;profMsg="";editProfile=false;persist();render();toast("Fuel target set")});
+}
+
+/* ---------- Eggwairi (built-in AI coach) ---------- */
+let chat=[],chatBusy=false,chatDraft="",cctl=null,liveText="";
+const CHIPS=["Plan my evening","I'm stressed, help","Move my tasks, I'm tired","What should I eat before training?","Quiz me on something"];
+function fmtMsg(t){return esc(t).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/^\s*[-•]\s+/gm,"• ").replace(/\n/g,"<br>")}
+function renderCoach(){
+  if(!AI)return noAI();
+  const msgs=chat.length?chat:[{role:"assistant",content:`Hey${S.name?" "+S.name:""}! I'm Eggwairi, your coach. I know your plan, your deadlines and what you've eaten today. Ask me anything, or tell me how you're feeling and I'll adjust your day.`}];
+  return `<div class="chat" id="chatlog">${msgs.map(m=>`<div class="bub ${m.role==="user"?"me":"ai"}">${fmtMsg(m.content)}</div>`).join("")}${chatBusy&&!liveText?`<div class="bub ai typing"><i></i><i></i><i></i></div>`:""}${liveText?`<div class="bub ai" data-live="1">${fmtMsg(liveText)}</div>`:""}</div>
+  <div class="seg chips">${CHIPS.map(c=>`<button data-chip="${esc(c)}" ${chatBusy?"disabled":""}>${esc(c)}</button>`).join("")}</div>
+  <div class="composer"><textarea id="chat-in" rows="1" placeholder="Message Eggwairi…" aria-label="Message Eggwairi"></textarea>${chatBusy?`<button class="send" id="chat-stop" aria-label="Stop">■</button>`:`<button class="send" id="chat-send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2-6z"/></svg></button>`}</div>
+  ${chat.length?`<div class="row2"><button class="rm" id="chat-clear">Clear chat</button></div>`:""}`;
+}
+function coachContext(){const f=foodToday(),need=fuelNeed();
+  return `You are "Eggwairi", a friendly, upbeat AI coach inside ghulife, a personal planner app.
+${aboutMe()}
+Rules: short replies (2-6 sentences or a short list), casual and encouraging, like a good older sibling. Help them do their own schoolwork (explain, quiz, plan) but never write assignments for them. Never suggest eating less, skipping meals, weight loss or calorie deficits. For feeling very low, being unsafe, health problems or injuries, be kind and tell them to talk to a parent, school counselor or doctor.
+You can change their plan with tools: add, move or tick tasks, or log water. Say briefly what you changed. Don't schedule over school${S.muslim?", prayers":""} or bedtime.
+Now: ${todayStr} ${fmt(nowMin())}.
+Today (id | time | item | status):
+${dayItems(todayStr).map(t=>`${t.id} | ${label(t)} | ${t.text} | ${S.saved[t.id]?"done":"not done"}`).join("\n")}
+Next days:
+${planSummary()}
+Unfinished: ${missed().map(m=>m.id+": "+m.text).join("; ")||"none"}
+Deadlines: ${dueSoon().map(t=>t.d+": "+t.text).join("; ")||"none"}
+Food today: ${f.map(x=>x.meal+": "+x.name+" ("+x.kcal+" kcal)").join("; ")||"nothing logged"}. Water ${S.water[todayStr]||0}/8.${need?` Daily energy need about ${need.lo}-${need.hi} kcal.`:""}`}
+const COACH_TOOLS=()=>[
+ {name:"add_task",description:"Add a task. date YYYY-MM-DD (today to 12 days ahead), start/end 24h 'HH:MM' or omit for anytime, kind one of sum (study), hw, due (deadline), gym, routine. Returns the id.",
+  inputSchema:{type:"object",properties:{date:{type:"string"},start:{type:"string"},end:{type:"string"},text:{type:"string"},kind:{type:"string"}},required:["date","text"]},
+  execute:i=>{const d=String(i.date||"");if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||d<todayStr)throw new Error("date must be today or later, YYYY-MM-DD");
+    const s=/^\d{1,2}:\d{2}$/.test(i.start||"")?hm(i.start):null,e=/^\d{1,2}:\d{2}$/.test(i.end||"")?hm(i.end):s==null?null:s+45,id=uid();
+    S.tasks.push({id,d,s,e,text:String(i.text),kind:KIND[i.kind]?String(i.kind):"sum",src:"coach"});persist();return{ok:true,id}}},
+ {name:"move_task",description:"Move a task (by id) to another date and optional start time 'HH:MM'.",
+  inputSchema:{type:"object",properties:{id:{type:"string"},date:{type:"string"},start:{type:"string"}},required:["id","date"]},
+  execute:i=>{const id=String(i.id),d=String(i.date);if(!/^\d{4}-\d{2}-\d{2}$/.test(d))throw new Error("bad date");let it=null,from=null;
+    for(let k=-3;k<14;k++){const dd=addD(todayStr,k);const f=dayItems(dd).find(x=>x.id===id);if(f){it=f;from=dd;break}}if(!it)throw new Error("no task with that id");
+    if(it.fixed)throw new Error("school can't be moved");const s=/^\d{1,2}:\d{2}$/.test(i.start||"")?hm(i.start):null;
+    if(it.custom){const t=S.tasks.find(x=>x.id===id);const len=t.e!=null&&t.s!=null?t.e-t.s:45;t.d=d;t.s=s;t.e=s==null?null:s+len;t.src="moved"}
+    else{S.moved[id]=true;S.tasks.push({id:uid(),d,s,e:s==null?null:s+45,text:it.text,kind:it.kind,src:"moved"})}persist();return{ok:true}}},
+ {name:"set_done",description:"Mark a task done or not done by id.",inputSchema:{type:"object",properties:{id:{type:"string"},done:{type:"boolean"}},required:["id"]},
+  execute:i=>{S.saved[String(i.id)]=i.done!==false;persist();return{ok:true}}},
+ {name:"log_water",description:"Set glasses of water drunk today (0-12).",inputSchema:{type:"object",properties:{glasses:{type:"number"}},required:["glasses"]},
+  execute:i=>{S.water[todayStr]=Math.max(0,Math.min(12,Math.round(+i.glasses||0)));persist();return{ok:true}}}
+];
+async function sendChat(text){
+  text=String(text||"").trim();if(!text||chatBusy)return;
+  chat.push({role:"user",content:text});chatDraft="";chatBusy=true;liveText="";render();scrollChat();cctl=new AbortController();
+  const turns=[{role:"user",content:coachContext()},{role:"assistant",content:"Got it. Ready to help."},...chat.slice(-12)];
+  const opts={signal:cctl.signal,cache:false,onText:({text})=>{liveText=text;const live=document.querySelector("[data-live]");if(live)live.innerHTML=fmtMsg(text);else render();scrollChat()}};
+  if(AItools){opts.tools=COACH_TOOLS();delete opts.cache}
+  try{const r=await AI(turns,opts);chat.push({role:"assistant",content:r.text})}
+  catch(e){const m=errMsg(e);if(e?.text)chat.push({role:"assistant",content:e.text});else if(m)chat.push({role:"assistant",content:m});else chat.pop()}
+  chatBusy=false;liveText="";cctl=null;render();scrollChat();
+}
+function scrollChat(){requestAnimationFrame(()=>window.scrollTo(0,document.body.scrollHeight))}
+function bindCoach(){
+  const i=document.getElementById("chat-in");
+  if(i){i.value=chatDraft;i.addEventListener("input",()=>{chatDraft=i.value;i.style.height="auto";i.style.height=Math.min(120,i.scrollHeight)+"px"});
+    i.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendChat(i.value)}})}
+  on("chat-send",()=>sendChat(chatDraft));on("chat-stop",()=>cctl&&cctl.abort());on("chat-clear",()=>{chat=[];render()});
+}
+
+/* ---------- Settings ---------- */
+let confirmReset=false;
+function scheduleFields(pre){return `<div class="field">School / work days<div class="days" data-group="schoolDays">${WD.map((n,i)=>`<button data-day="${i}" class="${S.schoolDays.includes(i)?"on":""}" aria-pressed="${S.schoolDays.includes(i)}">${wdn(i)}</button>`).join("")}</div></div>
+  <div class="grid2"><label class="field">Starts<input id="${pre}ss" type="time" value="${S.schoolStart}"></label><label class="field">Ends<input id="${pre}se" type="time" value="${S.schoolEnd}"></label></div>
+  <div class="grid2"><label class="field">Wake up<input id="${pre}wk" type="time" value="${S.wake}"></label><label class="field">Bedtime<input id="${pre}bd" type="time" value="${S.bed}"></label></div>
+  <div class="field">Training days (optional)<div class="days" data-group="trainDays">${WD.map((n,i)=>`<button data-day="${i}" class="${S.trainDays.includes(i)?"on":""}" aria-pressed="${S.trainDays.includes(i)}">${wdn(i)}</button>`).join("")}</div></div>
+  <label class="field">Training time<input id="${pre}tt" type="time" value="${S.trainTime}"></label>`}
+function readSchedule(pre){const v=i=>document.getElementById(pre+i)?.value;
+  if(v("ss"))S.schoolStart=v("ss");if(v("se"))S.schoolEnd=v("se");if(v("wk"))S.wake=v("wk");if(v("bd"))S.bed=v("bd");if(v("tt"))S.trainTime=v("tt")}
+function faithFields(){return `<div class="choice"><button data-muslim="1" class="${S.muslim?"on":""}"><b>🕌 Yes, add the 5 daily prayers</b><small>Times calculated for your city, every day</small></button>
+  <button data-muslim="0" class="${!S.muslim?"on":""}"><b>No thanks</b><small>You can turn this on later in Settings</small></button></div>
+  ${S.muslim?`<label class="field">Your city<select id="city">${Object.keys(CITIES).map(c=>`<option ${c===S.city?"selected":""}>${c}</option>`).join("")}</select></label>
+  <p class="fine" style="margin:0">Today in ${esc(S.city)}: ${(()=>{const t=prayerTimes(todayStr,S.city);return[["fajr","Fajr"],["dhuhr","Dhuhr"],["asr","Asr"],["maghrib","Maghrib"],["isha","Isha"]].map(([k,n])=>`${n} ${fmt(t[k])}`).join(" · ")})()}. Always check with your local mosque.</p>`:""}`}
+function renderSettings(){
+  return `<div class="card setsec"><div class="sec" style="margin:0">You</div><label class="field">Name<input id="st-name" maxlength="24" value="${esc(S.name)}" placeholder="Your name"></label></div>
+  <div class="card setsec"><div class="sec" style="margin:0">Language</div>${langFields()}</div>
+  <div class="card setsec"><div class="sec" style="margin:0">Look</div>${themeFields()}</div>
+  <div class="card setsec"><div class="sec" style="margin:0">Your day</div>${scheduleFields("st-")}</div>
+  <div class="card setsec"><div class="sec" style="margin:0">Prayer times</div>${faithFields()}</div>
+  <div class="card setsec"><div class="sec" style="margin:0">Body</div><p class="lead">Used for your daily fuel estimate.</p>${profileForm(S.profile,"st-")}</div>
+  <button class="primary" id="st-save">Save changes</button>
+  <div class="card setsec"><div class="sec" style="margin:0">About</div><p class="lead" style="margin:0"><b>ghulife</b> · <span>Made by</span> <b>Abdullah Alghuwairi</b></p><p class="fine" style="margin:0">© 2026 Abdullah Alghuwairi. <span>All rights reserved.</span></p></div>
+  <div class="card setsec"><div class="sec" style="margin:0">More</div>
+    <div class="row2" style="justify-content:flex-start"><button class="ghost" id="st-intro">Replay intro</button><button class="ghost" id="st-tips">Show tab tips again</button></div>
+    ${confirmReset?`<p class="msg">This deletes all your tasks, food logs and settings. Are you sure?</p><div class="row2" style="justify-content:flex-start"><button class="ghost" id="st-reset-no">Keep my data</button><button class="ghost danger" id="st-reset-yes">Delete everything</button></div>`:`<button class="ghost danger" id="st-reset" style="justify-self:start">Reset ghulife</button>`}</div>`;
+}
+function bindSettings(){
+  on("st-save",()=>{S.name=document.getElementById("st-name").value.trim().slice(0,24);readSchedule("st-");const c=document.getElementById("city");if(c)S.city=c.value;
+    const p=readProfile("st-");if(p)S.profile=p;persist();tab="day";render();window.scrollTo(0,0);toast("Saved")});
+  on("st-intro",()=>{S.onboarded=false;obStep=0;persist();document.getElementById("intro").innerHTML="";render()});
+  on("st-tips",()=>{S.seenTabs={};persist();toast("Tips will show on each tab")});
+  on("st-reset",()=>{confirmReset=true;render()});on("st-reset-no",()=>{confirmReset=false;render()});
+  on("st-reset-yes",()=>{S=JSON.parse(JSON.stringify(BLANK));confirmReset=false;persist();obStep=0;tab="day";sel=todayStr;document.getElementById("intro").innerHTML="";render()});
+  document.getElementById("city")?.addEventListener("change",e=>{S.city=e.target.value;render()});
+}
+
+/* ---------- Intro (first open) ---------- */
+let obStep=0,obName="";
+const OB=["welcome","name","day","faith","body","tour","done"];
+function renderIntro(){
+  const ov=document.getElementById("intro");if(S.onboarded){ov.hidden=true;return}ov.hidden=false;
+  const st=OB[obStep],dots=`<div class="obdots">${OB.map((_,i)=>`<i class="${i===obStep?"on":i<obStep?"past":""}"></i>`).join("")}</div>`;
+  const tour=["day","scan","health","coach"].map(k=>TAB_INTRO[k]);
+  const body={
+    welcome:`${langFields()}<div class="obart"><b class="eggart"><svg class="egg" viewBox="0 0 24 30" aria-hidden="true"><defs><linearGradient id="eg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent-2)"/><stop offset="1" stop-color="var(--teal)"/></linearGradient></defs><path d="M12 1.2C6.6 1.2 2.2 9.6 2.2 17.6 2.2 24 6.6 28.8 12 28.8s9.8-4.8 9.8-11.2C21.8 9.6 17.4 1.2 12 1.2z" fill="url(#eg2)"/><path d="M5.6 17.2h12.8" stroke="var(--on)" stroke-width="1.6" stroke-linecap="round" opacity=".9"/><path d="M7.4 9.4c1.1-2.6 2.7-4.4 4.6-4.9" stroke="#fff" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".55"/></svg></b></div>
+      <div class="eyebrow">Welcome to ghulife</div><h2>Your life,<br>finally organized.</h2><p>School, deadlines, training${""}, food and sleep in one place, with an AI coach that has your back.</p>
+      <button class="primary" data-ob="next">Let's set it up</button><p class="fine" style="text-align:center;margin:0">Takes about a minute.</p><p class="credit"><span>Made by</span> <b>Abdullah Alghuwairi</b></p>`,
+    name:`<h2>First, what should we call you?</h2><p>Eggwairi, your coach, will greet you by name.</p>
+      <input class="obin" id="ob-name" maxlength="24" placeholder="Your name" value="${esc(obName||S.name)}" autocomplete="given-name">
+      <button class="primary" data-ob="name">Continue</button>`,
+    day:`<h2>What does your week look like?</h2><p>This builds your calendar. You can change it any time.</p>${scheduleFields("ob-")}<button class="primary" data-ob="day">Continue</button>`,
+    faith:`<h2>Want prayer times in your day?</h2><p>For Muslims. Each prayer gets its own block at the right time for your city.</p>${faithFields()}<button class="primary" data-ob="faith">Continue</button>`,
+    body:`<h2>Your body, your fuel</h2><p>Optional. Used to estimate how much energy you need each day.</p>${profileForm(S.profile,"ob-")}<p class="msg" id="ob-err"></p>
+      <div class="row2"><button class="ghost" data-ob="next">Skip</button><button class="primary" data-ob="body">Continue</button></div>`,
+    tour:`<h2>Four tabs.<br>Zero stress.</h2><div class="obtour">${tour.map((t,i)=>`<div><span>${t.icon}</span><b>${t.name}</b><small>${t.hook}</small></div>`).join("")}</div><button class="primary" data-ob="next">I'm in</button>`,
+    done:`<div class="obart done"><b>✓</b></div><h2>You're all set${S.name?", "+esc(S.name):""}!</h2><p>Start by scanning your first task sheet, or just open your day and see your new calendar.</p>
+      <button class="primary" data-ob="done">Open my day</button>`
+  }[st];
+  ov.innerHTML=`<div class="obcard pad">${obStep>0&&st!=="done"?`<button class="obback" data-ob="back" aria-label="Back">‹ Back</button>`:"<span></span>"}${dots}<div class="obbody">${body}</div></div>`;
+  const n=document.getElementById("ob-name");if(n){n.addEventListener("input",()=>obName=n.value);n.addEventListener("keydown",e=>{if(e.key==="Enter")obAct("name")})}
+  document.getElementById("city")?.addEventListener("change",e=>{S.city=e.target.value;renderIntro()});
+  translateDOM(ov);
+}
+function obAct(a){
+  const st=OB[obStep];
+  if(a==="back"){obStep=Math.max(0,obStep-1)}
+  else if(a==="next")obStep++;
+  else if(a==="name"){S.name=(document.getElementById("ob-name")?.value||obName||"").trim().slice(0,24);obStep++}
+  else if(a==="day"){readSchedule("ob-");obStep++}
+  else if(a==="faith"){const c=document.getElementById("city");if(c)S.city=c.value;obStep++}
+  else if(a==="body"){const p=readProfile("ob-");if(!p){document.getElementById("ob-err").textContent="Check your numbers: age, height in cm, weight in kg. Or tap Skip.";return}S.profile=p;obStep++}
+  else if(a==="done"){S.onboarded=true;if(!S.since)S.since=todayStr+"T"+nowMin();persist();sel=todayStr;tab="day";render();toast(`Welcome${S.name?", "+S.name:""}! 👋`)}
+  if(st==="day"&&a==="back")readSchedule("ob-");
+  renderIntro();
+}
+
+/* ---------- Render + events ---------- */
+function render(){
+  if(!DAYS().includes(sel))sel=todayStr;
+  renderHeader();renderStrip();
+  const v=document.getElementById("view");
+  v.innerHTML=tabIntro()+{day:renderDay,week:renderWeek,scan:renderScan,health:renderHealth,coach:renderCoach,settings:renderSettings}[tab]();
+  ({day:bindDay,scan:bindScan,health:bindHealth,coach:bindCoach,settings:bindSettings}[tab]||(()=>{}))();
+  ["day","week","scan","health","coach"].forEach(x=>document.getElementById("tab-"+x).classList.toggle("on",x===tab));
+  const ov=document.getElementById("intro");if(S.onboarded)ov.hidden=true;else if(!ov.innerHTML)renderIntro();
+  translateDOM(v);
+}
+function go(t){tab=t;adding=false;render();window.scrollTo(0,0)}
+document.getElementById("strip").addEventListener("click",e=>{const b=e.target.closest(".pill");if(!b)return;sel=b.dataset.d;adding=false;render();window.scrollTo(0,0)});
+on("gear",()=>go("settings"));
+on("themebtn",()=>{const cur=S.theme==="light"||S.theme==="dark"?S.theme:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");setTheme(cur==="dark"?"light":"dark");if(tab==="settings")render()});
+["day","week","scan","health","coach"].forEach(x=>on("tab-"+x,()=>go(x)));
+document.addEventListener("click",e=>{
+  const t=e.target;let b;
+  if(b=t.closest("[data-ob]")){obAct(b.dataset.ob);return}
+  if(b=t.closest("[data-day]")){const g=b.closest("[data-group]").dataset.group,i=+b.dataset.day;
+    if(document.getElementById("intro").contains(b))readSchedule("ob-");else readSchedule("st-");
+    S[g]=S[g].includes(i)?S[g].filter(x=>x!==i):[...S[g],i].sort();b.classList.toggle("on");b.setAttribute("aria-pressed",S[g].includes(i));return}
+  if(b=t.closest("[data-muslim]")){S.muslim=b.dataset.muslim==="1";if(document.getElementById("intro").contains(b))renderIntro();else{const nm=document.getElementById("st-name")?.value;readSchedule("st-");render();if(nm!=null)document.getElementById("st-name").value=nm}return}
+  if(b=t.closest("[data-lang]")){S.lang=b.dataset.lang;persist();const io=document.getElementById("intro");if(!S.onboarded)renderIntro();render();return}
+  if(b=t.closest("[data-theme-set]")){setTheme(b.dataset.themeSet);b.parentElement.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));return}
+  if(b=t.closest("[data-sex]")){draftSex=b.dataset.sex;b.parentElement.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));return}
+  if(!document.getElementById("view").contains(t))return;
+  if(b=t.closest("[data-rm]")){e.preventDefault();S.tasks=S.tasks.filter(c=>c.id!==b.dataset.rm);delete S.saved[b.dataset.rm];persist();render();return}
+  if(b=t.closest("[data-done]")){S.saved[b.dataset.done]=true;persist();toast("Nice, ticked off ✓");render();return}
+  if(b=t.closest("[data-move]")){moveTask(b.dataset.move,b.dataset.md);return}
+  if(b=t.closest("[data-go]")){sel=b.dataset.go;go("day");return}
+  if(b=t.closest("[data-tab]")){go(b.dataset.tab);return}
+  if(b=t.closest("[data-w]")){const n=+b.dataset.w,c=S.water[todayStr]||0;S.water[todayStr]=n===c?n-1:n;persist();render();return}
+  if(b=t.closest("[data-rmfood]")){S.food[todayStr]=foodToday().filter(x=>x.id!==b.dataset.rmfood);persist();render();return}
+  if(b=t.closest("[data-goal]")){goal=b.dataset.goal;render();return}
+  if(b=t.closest("[data-chip]")){sendChat(b.dataset.chip);return}
+  if(b=t.closest("[data-seen]")){S.seenTabs=Object.assign({},S.seenTabs,{[b.dataset.seen]:true});persist();render();return}
+});
+document.getElementById("view").addEventListener("change",e=>{if(e.target.type!=="checkbox")return;S.saved[e.target.id]=e.target.checked;persist();
+  if(e.target.checked){const st=dayStats(sel);if(st.c===st.n)toast("Day complete! 🎉")}renderHeader();renderStrip()});
+let lastCount=missed().length;
+setInterval(()=>{now=new Date();const nd=ds(now);if(nd!==todayStr){todayStr=nd}
+  const m=missed().length;if(m>lastCount&&S.onboarded)toast("⏰ A task just slipped. Check Today.");lastCount=m;
+  const busy=document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
+  if(tab==="day"&&!busy&&!adding)render();else renderHeader()},60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden){now=new Date();todayStr=ds(now);if(!adding)render();const m=missed().length;if(m&&S.onboarded)toast(`⏰ ${m} unfinished task${m>1?"s":""}. Catch up on Today.`)}});
+applyTheme();
+render();
+</script>
+
+</body>
+</html>
